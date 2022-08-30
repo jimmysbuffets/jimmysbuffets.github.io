@@ -1,0 +1,13 @@
+fig:nice-fig
+tab:nice-tab
+prerequisites
+intro
+literature
+methods
+math-example
+applications
+example-one
+example-two
+final-words
+testpage
+math-example-1
