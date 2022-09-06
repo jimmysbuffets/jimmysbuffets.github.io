@@ -29,3 +29,4 @@ determine-bets
 store-bet-history
 results
 pet-theories
+section
