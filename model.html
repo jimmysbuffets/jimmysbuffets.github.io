@@ -119,28 +119,6 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-<style type="text/css">
-/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
-</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -162,7 +140,10 @@ div.csl-indent {
 <li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
 <li class="chapter" data-level="3" data-path="model.html"><a href="model.html"><i class="fa fa-check"></i><b>3</b> Model</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="model.html"><a href="model.html#scraping-game-data"><i class="fa fa-check"></i><b>3.1</b> Scraping Game Data</a></li>
+<li class="chapter" data-level="3.1" data-path="model.html"><a href="model.html#scraping-game-data"><i class="fa fa-check"></i><b>3.1</b> Scraping Game Data</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="model.html"><a href="model.html#apparently-a-third-level-header"><i class="fa fa-check"></i><b>3.1.1</b> apparently a third-level header?</a></li>
+</ul></li>
 <li class="chapter" data-level="3.2" data-path="model.html"><a href="model.html#base-elo"><i class="fa fa-check"></i><b>3.2</b> Base Elo</a></li>
 <li class="chapter" data-level="3.3" data-path="model.html"><a href="model.html#summary-visualizations"><i class="fa fa-check"></i><b>3.3</b> Summary Visualizations</a></li>
 <li class="chapter" data-level="3.4" data-path="model.html"><a href="model.html#pet-theories"><i class="fa fa-check"></i><b>3.4</b> Pet Theories</a></li>
@@ -207,6 +188,71 @@ div.csl-indent {
 <h1><span class="header-section-number">Chapter 3</span> Model<a href="model.html#model" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <div id="scraping-game-data" class="section level2 hasAnchor" number="3.1">
 <h2><span class="header-section-number">3.1</span> Scraping Game Data<a href="model.html#scraping-game-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="apparently-a-third-level-header" class="section level3 hasAnchor" number="3.1.1">
+<h3><span class="header-section-number">3.1.1</span> apparently a third-level header?<a href="model.html#apparently-a-third-level-header" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>eval is TRUE for code chunk</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="model.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="dv">5</span>)</span></code></pre></div>
+<pre><code>## [1]  0.04494303 -0.52960589  0.27149467 -0.36400485  0.29528398</code></pre>
+<p>eval is FALSE for code chunk
+Load libraries</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="model.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#load libraries#</span></span>
+<span id="cb4-2"><a href="model.html#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rvest)</span>
+<span id="cb4-3"><a href="model.html#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb4-4"><a href="model.html#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb4-5"><a href="model.html#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(runner)</span>
+<span id="cb4-6"><a href="model.html#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb4-7"><a href="model.html#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(magrittr)</span></code></pre></div>
+<p>What does this look like? Creating a df of team names</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="model.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#load teams and put into teams_df#</span></span>
+<span id="cb5-2"><a href="model.html#cb5-2" aria-hidden="true" tabindex="-1"></a>teams_full <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Atlanta Hawks&quot;</span>, <span class="st">&quot;Boston Celtics&quot;</span>, <span class="st">&quot;Brooklyn Nets&quot;</span>, <span class="st">&quot;Charlotte Hornets&quot;</span>, <span class="st">&quot;Chicago Bulls&quot;</span>, <span class="st">&quot;Cleveland Cavaliers&quot;</span>, <span class="st">&quot;Dallas Mavericks&quot;</span>, <span class="st">&quot;Denver Nuggets&quot;</span>, <span class="st">&quot;Detroit Pistons&quot;</span>, <span class="st">&quot;Golden State Warriors&quot;</span>, <span class="st">&quot;Houston Rockets&quot;</span>, <span class="st">&quot;Indiana Pacers&quot;</span>, <span class="st">&quot;Los Angeles Clippers&quot;</span>, <span class="st">&quot;Los Angeles Lakers&quot;</span>, <span class="st">&quot;Memphis Grizzlies&quot;</span>, <span class="st">&quot;Miami Heat&quot;</span>, <span class="st">&quot;Milwaukee Bucks&quot;</span>, <span class="st">&quot;Minnesota Timberwolves&quot;</span>, <span class="st">&quot;New Orleans Pelicans&quot;</span>, <span class="st">&quot;New York Knicks&quot;</span>, <span class="st">&quot;Oklahoma City Thunder&quot;</span>, <span class="st">&quot;Orlando Magic&quot;</span>, <span class="st">&quot;Philadelphia 76ers&quot;</span>, <span class="st">&quot;Phoenix Suns&quot;</span>, <span class="st">&quot;Portland Trail Blazers&quot;</span>, <span class="st">&quot;Sacramento Kings&quot;</span>, <span class="st">&quot;San Antonio Spurs&quot;</span>, <span class="st">&quot;Toronto Raptors&quot;</span>, <span class="st">&quot;Utah Jazz&quot;</span>, <span class="st">&quot;Washington Wizards&quot;</span>)</span>
+<span id="cb5-3"><a href="model.html#cb5-3" aria-hidden="true" tabindex="-1"></a>teams_abr <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;ATL&quot;</span>, <span class="st">&quot;BOS&quot;</span>, <span class="st">&quot;BRK&quot;</span>, <span class="st">&quot;CHO&quot;</span>, <span class="st">&quot;CHI&quot;</span>, <span class="st">&quot;CLE&quot;</span>, <span class="st">&quot;DAL&quot;</span>, <span class="st">&quot;DEN&quot;</span>, <span class="st">&quot;DET&quot;</span>, <span class="st">&quot;GSW&quot;</span>, <span class="st">&quot;HOU&quot;</span>, <span class="st">&quot;IND&quot;</span>, <span class="st">&quot;LAC&quot;</span>, <span class="st">&quot;LAL&quot;</span>, <span class="st">&quot;MEM&quot;</span>, <span class="st">&quot;MIA&quot;</span>, <span class="st">&quot;MIL&quot;</span>, <span class="st">&quot;MIN&quot;</span>, <span class="st">&quot;NOP&quot;</span>, <span class="st">&quot;NYK&quot;</span>, <span class="st">&quot;OKC&quot;</span>, <span class="st">&quot;ORL&quot;</span>, <span class="st">&quot;PHI&quot;</span>, <span class="st">&quot;PHO&quot;</span>, <span class="st">&quot;POR&quot;</span>, <span class="st">&quot;SAC&quot;</span>, <span class="st">&quot;SAS&quot;</span>, <span class="st">&quot;TOR&quot;</span>, <span class="st">&quot;UTA&quot;</span>, <span class="st">&quot;WAS&quot;</span>)</span>
+<span id="cb5-4"><a href="model.html#cb5-4" aria-hidden="true" tabindex="-1"></a>teams_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(teams_full, teams_abr)</span>
+<span id="cb5-5"><a href="model.html#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(teams_full,teams_abr)</span></code></pre></div>
+<p>Loops for scraping from basketball-reference</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="model.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">#load variables for scrape/looping#</span></span>
+<span id="cb6-2"><a href="model.html#cb6-2" aria-hidden="true" tabindex="-1"></a>years <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;2015&quot;</span>,<span class="st">&quot;2016&quot;</span>,<span class="st">&quot;2017&quot;</span>,<span class="st">&quot;2018&quot;</span>,<span class="st">&quot;2019&quot;</span>)</span>
+<span id="cb6-3"><a href="model.html#cb6-3" aria-hidden="true" tabindex="-1"></a>months <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;october&quot;</span>,<span class="st">&quot;november&quot;</span>,<span class="st">&quot;december&quot;</span>,<span class="st">&quot;january&quot;</span>,<span class="st">&quot;february&quot;</span>,<span class="st">&quot;march&quot;</span>,<span class="st">&quot;april&quot;</span>,<span class="st">&quot;may&quot;</span>,<span class="st">&quot;june&quot;</span>)</span>
+<span id="cb6-4"><a href="model.html#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="model.html#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co">#loop to scrape each full year into its own df#</span></span>
+<span id="cb6-6"><a href="model.html#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(year <span class="cf">in</span> years){</span>
+<span id="cb6-7"><a href="model.html#cb6-7" aria-hidden="true" tabindex="-1"></a>  gamelog_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>()</span>
+<span id="cb6-8"><a href="model.html#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(month <span class="cf">in</span> months){</span>
+<span id="cb6-9"><a href="model.html#cb6-9" aria-hidden="true" tabindex="-1"></a>    url <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&quot;https://www.basketball-reference.com/leagues/NBA_&quot;</span>,year,<span class="st">&quot;_games-&quot;</span>, month, <span class="st">&quot;.html&quot;</span>)</span>
+<span id="cb6-10"><a href="model.html#cb6-10" aria-hidden="true" tabindex="-1"></a>    webpage <span class="ot">&lt;-</span> <span class="fu">read_html</span>(url)</span>
+<span id="cb6-11"><a href="model.html#cb6-11" aria-hidden="true" tabindex="-1"></a>    table <span class="ot">=</span> webpage <span class="sc">%&gt;%</span> <span class="fu">html_nodes</span>(<span class="st">&quot;table&quot;</span>) <span class="sc">%&gt;%</span> <span class="fu">html_table</span>() <span class="sc">%&gt;%</span> .[[<span class="dv">1</span>]]</span>
+<span id="cb6-12"><a href="model.html#cb6-12" aria-hidden="true" tabindex="-1"></a>    gamelog_df <span class="ot">&lt;-</span> <span class="fu">rbind</span>(gamelog_df, table)}</span>
+<span id="cb6-13"><a href="model.html#cb6-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">assign</span>(<span class="fu">paste0</span>(<span class="st">&quot;log&quot;</span>,year,<span class="st">&quot;df&quot;</span>), gamelog_df)}</span>
+<span id="cb6-14"><a href="model.html#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(gamelog_df, table, webpage,month, months, url, year)</span></code></pre></div>
+<p>Clean up each individual df</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="model.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#loop to clean up each year&#39;s df</span></span>
+<span id="cb7-2"><a href="model.html#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (year <span class="cf">in</span> years){</span>
+<span id="cb7-3"><a href="model.html#cb7-3" aria-hidden="true" tabindex="-1"></a>  temp_df <span class="ot">&lt;-</span> <span class="fu">get</span>(<span class="fu">paste0</span>(<span class="st">&quot;log&quot;</span>,year,<span class="st">&quot;df&quot;</span>))</span>
+<span id="cb7-4"><a href="model.html#cb7-4" aria-hidden="true" tabindex="-1"></a>  temp_df <span class="ot">&lt;-</span> temp_df[<span class="dv">1</span><span class="sc">:</span><span class="dv">1230</span>, <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span><span class="sc">:</span><span class="dv">6</span>)] <span class="sc">%&gt;%</span> </span>
+<span id="cb7-5"><a href="model.html#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">set_colnames</span>(<span class="fu">c</span>(<span class="st">&quot;date&quot;</span>,<span class="st">&quot;away_team&quot;</span>,<span class="st">&quot;away_pts&quot;</span>,<span class="st">&quot;home_team&quot;</span>,<span class="st">&quot;home_pts&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb7-6"><a href="model.html#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">game_id =</span>  <span class="fu">as.numeric</span>(year)<span class="sc">*</span><span class="dv">100000</span> <span class="sc">+</span> (<span class="dv">1</span><span class="sc">:</span><span class="dv">1230</span>),</span>
+<span id="cb7-7"><a href="model.html#cb7-7" aria-hidden="true" tabindex="-1"></a>           <span class="at">season =</span> <span class="fu">as.numeric</span>(<span class="fu">paste0</span>(year)),</span>
+<span id="cb7-8"><a href="model.html#cb7-8" aria-hidden="true" tabindex="-1"></a>           <span class="at">date =</span> <span class="fu">mdy</span>(date),</span>
+<span id="cb7-9"><a href="model.html#cb7-9" aria-hidden="true" tabindex="-1"></a>           <span class="at">away_pts =</span> <span class="fu">as.numeric</span>(away_pts),</span>
+<span id="cb7-10"><a href="model.html#cb7-10" aria-hidden="true" tabindex="-1"></a>           <span class="at">home_pts =</span> <span class="fu">as.numeric</span>(home_pts),</span>
+<span id="cb7-11"><a href="model.html#cb7-11" aria-hidden="true" tabindex="-1"></a>           <span class="at">game_outcome =</span> <span class="fu">ifelse</span>(home_pts <span class="sc">&gt;</span> away_pts,<span class="dv">1</span>,<span class="dv">0</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb7-12"><a href="model.html#cb7-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(game_id,date,season,home_team,away_team,home_pts,away_pts,game_outcome)</span>
+<span id="cb7-13"><a href="model.html#cb7-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">assign</span>(<span class="fu">paste0</span>(<span class="st">&quot;log&quot;</span>,year,<span class="st">&quot;df&quot;</span>), temp_df)</span>
+<span id="cb7-14"><a href="model.html#cb7-14" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb7-15"><a href="model.html#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(temp_df, year)</span></code></pre></div>
+<p>Combine into one df</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="model.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#combine into a single df, and remove extraneous variables</span></span>
+<span id="cb8-2"><a href="model.html#cb8-2" aria-hidden="true" tabindex="-1"></a>allgames_df <span class="ot">&lt;-</span> <span class="fu">rbind</span>(log2015df,log2016df,log2017df,log2018df,log2019df)</span>
+<span id="cb8-3"><a href="model.html#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(log2015df,log2016df,log2017df,log2018df,log2019df)</span></code></pre></div>
+<p>final output: allgames_df (gamelog with regular season games from 2015-2019), teams_df: has the 30 current teams, full name and abbreviations, years: 2015-19</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="model.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(allgames_df)</span>
+<span id="cb9-2"><a href="model.html#cb9-2" aria-hidden="true" tabindex="-1"></a>     X1     X2</span>
+<span id="cb9-3"><a href="model.html#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span>     <span class="dv">1</span>     <span class="dv">41</span></span>
+<span id="cb9-4"><a href="model.html#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span>     <span class="dv">2</span>     <span class="dv">42</span></span>
+<span id="cb9-5"><a href="model.html#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span>     <span class="dv">3</span>     <span class="dv">43</span></span>
+<span id="cb9-6"><a href="model.html#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span>     <span class="dv">4</span>     <span class="dv">44</span></span>
+<span id="cb9-7"><a href="model.html#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span>     <span class="dv">5</span>     <span class="dv">45</span></span>
+<span id="cb9-8"><a href="model.html#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="dv">6</span>     <span class="dv">6</span>     <span class="dv">46</span></span></code></pre></div>
+</div>
 </div>
 <div id="base-elo" class="section level2 hasAnchor" number="3.2">
 <h2><span class="header-section-number">3.2</span> Base Elo<a href="model.html#base-elo" class="anchor-section" aria-label="Anchor link to header"></a></h2>
