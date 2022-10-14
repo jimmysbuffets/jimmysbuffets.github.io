@@ -33,3 +33,7 @@ section
 apparently-a-third-level-header
 full-gamelog-every-regular-season-game
 team-gamelog-each-teams-single-year-gamelogs-stitched-together
+season-gamelogs
+team-gamelogs
+initial-model-verification-visualizations
+more-fun-visualizations
