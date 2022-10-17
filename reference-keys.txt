@@ -37,3 +37,5 @@ season-gamelogs
 team-gamelogs
 initial-model-verification-visualizations
 more-fun-visualizations
+verification-visualizations
+more-visualizations
