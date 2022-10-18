@@ -39,3 +39,8 @@ initial-model-verification-visualizations
 more-fun-visualizations
 verification-visualizations
 more-visualizations
+reliability-diagrams
+brier-and-roc
+final-verification-toolkit
+brier-skill-score
+roc
