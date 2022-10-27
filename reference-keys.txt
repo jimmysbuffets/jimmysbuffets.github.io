@@ -61,3 +61,6 @@ knicks-v-celtics
 atlantic-division
 fivethirtyeight-replicas
 fixing-home-adv
+initial
+fig:foo-label-1
+fig:foo-label-2
