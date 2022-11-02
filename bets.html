@@ -23,7 +23,7 @@
 <meta name="author" content="Alex Rubin" />
 
 
-<meta name="date" content="2022-09-06" />
+<meta name="date" content="2022-11-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -119,28 +119,6 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-<style type="text/css">
-/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
-</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -162,14 +140,43 @@ div.csl-indent {
 <li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
 <li class="chapter" data-level="3" data-path="model.html"><a href="model.html"><i class="fa fa-check"></i><b>3</b> Model</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="model.html"><a href="model.html#scraping-game-data"><i class="fa fa-check"></i><b>3.1</b> Scraping Game Data</a></li>
+<li class="chapter" data-level="3.1" data-path="model.html"><a href="model.html#scraping-game-data"><i class="fa fa-check"></i><b>3.1</b> Scraping Game Data</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="model.html"><a href="model.html#libraries"><i class="fa fa-check"></i><b>3.1.1</b> Libraries</a></li>
+<li class="chapter" data-level="3.1.2" data-path="model.html"><a href="model.html#season-gamelogs"><i class="fa fa-check"></i><b>3.1.2</b> Season Gamelogs</a></li>
+<li class="chapter" data-level="3.1.3" data-path="model.html"><a href="model.html#team-gamelogs"><i class="fa fa-check"></i><b>3.1.3</b> Team Gamelogs</a></li>
+</ul></li>
 <li class="chapter" data-level="3.2" data-path="model.html"><a href="model.html#base-elo"><i class="fa fa-check"></i><b>3.2</b> Base Elo</a></li>
-<li class="chapter" data-level="3.3" data-path="model.html"><a href="model.html#summary-visualizations"><i class="fa fa-check"></i><b>3.3</b> Summary Visualizations</a></li>
-<li class="chapter" data-level="3.4" data-path="model.html"><a href="model.html#pet-theories"><i class="fa fa-check"></i><b>3.4</b> Pet Theories</a></li>
+<li class="chapter" data-level="3.3" data-path="model.html"><a href="model.html#verification"><i class="fa fa-check"></i><b>3.3</b> Verification</a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="model.html"><a href="model.html#reliability-diagrams"><i class="fa fa-check"></i><b>3.3.1</b> Reliability Diagrams</a></li>
+<li class="chapter" data-level="3.3.2" data-path="model.html"><a href="model.html#brier-skill-score"><i class="fa fa-check"></i><b>3.3.2</b> Brier Skill Score</a></li>
+<li class="chapter" data-level="3.3.3" data-path="model.html"><a href="model.html#roc"><i class="fa fa-check"></i><b>3.3.3</b> ROC</a></li>
+<li class="chapter" data-level="3.3.4" data-path="model.html"><a href="model.html#final-verification-toolkit"><i class="fa fa-check"></i><b>3.3.4</b> Final Verification Toolkit</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="model.html"><a href="model.html#home-advantage-elo-calibration"><i class="fa fa-check"></i><b>3.4</b> Home Advantage Elo Calibration</a></li>
+<li class="chapter" data-level="3.5" data-path="model.html"><a href="model.html#elo-visualizations"><i class="fa fa-check"></i><b>3.5</b> Elo Visualizations</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="model.html"><a href="model.html#knicks-elo"><i class="fa fa-check"></i><b>3.5.1</b> Knicks Elo</a></li>
+<li class="chapter" data-level="3.5.2" data-path="model.html"><a href="model.html#celtics-elo"><i class="fa fa-check"></i><b>3.5.2</b> Celtics Elo</a></li>
+<li class="chapter" data-level="3.5.3" data-path="model.html"><a href="model.html#knicks-v-celtics"><i class="fa fa-check"></i><b>3.5.3</b> Knicks v Celtics</a></li>
+<li class="chapter" data-level="3.5.4" data-path="model.html"><a href="model.html#atlantic-division"><i class="fa fa-check"></i><b>3.5.4</b> Atlantic Division</a></li>
+<li class="chapter" data-level="3.5.5" data-path="model.html"><a href="model.html#fivethirtyeight-replicas"><i class="fa fa-check"></i><b>3.5.5</b> fivethirtyeight Replicas</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="model.html"><a href="model.html#calibration"><i class="fa fa-check"></i><b>3.6</b> Calibration</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="model.html"><a href="model.html#initial"><i class="fa fa-check"></i><b>3.6.1</b> Initial</a></li>
+<li class="chapter" data-level="3.6.2" data-path="model.html"><a href="model.html#adding-stats-to-allgames_df"><i class="fa fa-check"></i><b>3.6.2</b> Adding Stats to allgames_df</a></li>
+<li class="chapter" data-level="3.6.3" data-path="model.html"><a href="model.html#team-stats"><i class="fa fa-check"></i><b>3.6.3</b> Team Stats</a></li>
+<li class="chapter" data-level="3.6.4" data-path="model.html"><a href="model.html#engineered-stats"><i class="fa fa-check"></i><b>3.6.4</b> Engineered Stats</a></li>
+<li class="chapter" data-level="3.6.5" data-path="model.html"><a href="model.html#play-styles"><i class="fa fa-check"></i><b>3.6.5</b> Play Styles</a></li>
+<li class="chapter" data-level="3.6.6" data-path="model.html"><a href="model.html#preseason"><i class="fa fa-check"></i><b>3.6.6</b> Preseason</a></li>
+<li class="chapter" data-level="3.6.7" data-path="model.html"><a href="model.html#playoff-hunt"><i class="fa fa-check"></i><b>3.6.7</b> Playoff Hunt</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="bets.html"><a href="bets.html"><i class="fa fa-check"></i><b>4</b> Betting Strategy</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="bets.html"><a href="bets.html#scraping-bet-data"><i class="fa fa-check"></i><b>4.1</b> Scraping Bet Data</a></li>
+<li class="chapter" data-level="4.1" data-path="bets.html"><a href="bets.html#getting-historical-data"><i class="fa fa-check"></i><b>4.1</b> Getting Historical Data</a></li>
 <li class="chapter" data-level="4.2" data-path="bets.html"><a href="bets.html#exploratory-analysis"><i class="fa fa-check"></i><b>4.2</b> Exploratory Analysis</a></li>
 <li class="chapter" data-level="4.3" data-path="bets.html"><a href="bets.html#betting-strategies"><i class="fa fa-check"></i><b>4.3</b> Betting Strategies</a></li>
 <li class="chapter" data-level="4.4" data-path="bets.html"><a href="bets.html#betting-strategy-results"><i class="fa fa-check"></i><b>4.4</b> Betting Strategy Results</a></li>
@@ -205,11 +212,299 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="bets" class="section level1 hasAnchor" number="4">
 <h1><span class="header-section-number">Chapter 4</span> Betting Strategy<a href="bets.html#bets" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="scraping-bet-data" class="section level2 hasAnchor" number="4.1">
-<h2><span class="header-section-number">4.1</span> Scraping Bet Data<a href="bets.html#scraping-bet-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>You want to investigate how the betting markets have operated historically. To do this, you need to find and download historical bet data and then add to an allgames_df.</p>
+<div id="getting-historical-data" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Getting Historical Data<a href="bets.html#getting-historical-data" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Downloaded excel files from <a href="https://www.sportsbookreviewsonline.com/scoresoddsarchives/nba/nbaoddsarchives.htm" class="uri">https://www.sportsbookreviewsonline.com/scoresoddsarchives/nba/nbaoddsarchives.htm</a></p>
+<p>This will clean and merge the bet data into a df called bets_df, still not ready to be merged with allgames</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="bets.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb2-2"><a href="bets.html#cb2-2" aria-hidden="true" tabindex="-1"></a>bets2015 <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;~</span><span class="sc">\\</span><span class="st">R</span><span class="sc">\\</span><span class="st">Basketball</span><span class="sc">\\</span><span class="st">bets</span><span class="sc">\\</span><span class="st">excel bet data</span><span class="sc">\\</span><span class="st">nba odds 2014-15.xlsx&quot;</span>)</span>
+<span id="cb2-3"><a href="bets.html#cb2-3" aria-hidden="true" tabindex="-1"></a>bets2016 <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;~</span><span class="sc">\\</span><span class="st">R</span><span class="sc">\\</span><span class="st">Basketball</span><span class="sc">\\</span><span class="st">bets</span><span class="sc">\\</span><span class="st">excel bet data</span><span class="sc">\\</span><span class="st">nba odds 2015-16.xlsx&quot;</span>)</span>
+<span id="cb2-4"><a href="bets.html#cb2-4" aria-hidden="true" tabindex="-1"></a>bets2017 <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;~</span><span class="sc">\\</span><span class="st">R</span><span class="sc">\\</span><span class="st">Basketball</span><span class="sc">\\</span><span class="st">bets</span><span class="sc">\\</span><span class="st">excel bet data</span><span class="sc">\\</span><span class="st">nba odds 2016-17.xlsx&quot;</span>)</span>
+<span id="cb2-5"><a href="bets.html#cb2-5" aria-hidden="true" tabindex="-1"></a>bets2018 <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;~</span><span class="sc">\\</span><span class="st">R</span><span class="sc">\\</span><span class="st">Basketball</span><span class="sc">\\</span><span class="st">bets</span><span class="sc">\\</span><span class="st">excel bet data</span><span class="sc">\\</span><span class="st">nba odds 2017-18.xlsx&quot;</span>)</span>
+<span id="cb2-6"><a href="bets.html#cb2-6" aria-hidden="true" tabindex="-1"></a>bets2019 <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;~</span><span class="sc">\\</span><span class="st">R</span><span class="sc">\\</span><span class="st">Basketball</span><span class="sc">\\</span><span class="st">bets</span><span class="sc">\\</span><span class="st">excel bet data</span><span class="sc">\\</span><span class="st">nba odds 2018-19.xlsx&quot;</span>)</span>
+<span id="cb2-7"><a href="bets.html#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="bets.html#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (year <span class="cf">in</span> years){</span>
+<span id="cb2-9"><a href="bets.html#cb2-9" aria-hidden="true" tabindex="-1"></a>  tempdf <span class="ot">&lt;-</span> <span class="fu">get</span>(<span class="fu">paste0</span>(<span class="st">&quot;bets&quot;</span>,year))</span>
+<span id="cb2-10"><a href="bets.html#cb2-10" aria-hidden="true" tabindex="-1"></a>  tempdf <span class="ot">&lt;-</span> tempdf <span class="sc">%&gt;%</span> <span class="fu">select</span>(Date,VH,Team,Final,ML) <span class="sc">%&gt;%</span> <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">2460</span>)</span>
+<span id="cb2-11"><a href="bets.html#cb2-11" aria-hidden="true" tabindex="-1"></a>  tempdf_H <span class="ot">&lt;-</span> tempdf <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="fu">row_number</span>() <span class="sc">%%</span> <span class="dv">2</span> <span class="sc">==</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span> <span class="fu">rename_with</span>( <span class="sc">~</span> <span class="fu">paste0</span>(<span class="st">&quot;h&quot;</span>, .x))</span>
+<span id="cb2-12"><a href="bets.html#cb2-12" aria-hidden="true" tabindex="-1"></a>  tempdf_A <span class="ot">&lt;-</span> tempdf <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="fu">row_number</span>() <span class="sc">%%</span> <span class="dv">2</span> <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span> <span class="fu">rename_with</span>( <span class="sc">~</span> <span class="fu">paste0</span>(<span class="st">&quot;a&quot;</span>, .x))</span>
+<span id="cb2-13"><a href="bets.html#cb2-13" aria-hidden="true" tabindex="-1"></a>  tempdf <span class="ot">&lt;-</span> <span class="fu">cbind</span>(tempdf_H,tempdf_A) <span class="sc">%&gt;%</span></span>
+<span id="cb2-14"><a href="bets.html#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">game_outcome =</span> <span class="fu">ifelse</span>(hFinal <span class="sc">&gt;</span> aFinal,<span class="dv">1</span>,<span class="dv">0</span>),</span>
+<span id="cb2-15"><a href="bets.html#cb2-15" aria-hidden="true" tabindex="-1"></a>           <span class="at">season =</span> year) <span class="sc">%&gt;%</span></span>
+<span id="cb2-16"><a href="bets.html#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(hDate,season, hTeam,aTeam,hFinal,aFinal,hML,aML,game_outcome)</span>
+<span id="cb2-17"><a href="bets.html#cb2-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">assign</span>(<span class="fu">paste0</span>(<span class="st">&quot;bets&quot;</span>,year,<span class="st">&quot;df&quot;</span>), tempdf)</span>
+<span id="cb2-18"><a href="bets.html#cb2-18" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-19"><a href="bets.html#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-20"><a href="bets.html#cb2-20" aria-hidden="true" tabindex="-1"></a>bets_df <span class="ot">&lt;-</span> <span class="fu">rbind</span>(bets2015df,bets2016df,bets2017df,bets2018df,bets2019df)</span>
+<span id="cb2-21"><a href="bets.html#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(tempdf,tempdf_A,tempdf_H,year)</span>
+<span id="cb2-22"><a href="bets.html#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(bets2015,bets2016,bets2017,bets2018,bets2019)</span>
+<span id="cb2-23"><a href="bets.html#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(bets2015df,bets2016df,bets2017df,bets2018df,bets2019df)</span></code></pre></div>
+<p>Fix some issues (namely that the name format is different) and add some columns to the bets_df</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="bets.html#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#change the df to do odds instead of money line</span></span>
+<span id="cb3-2"><a href="bets.html#cb3-2" aria-hidden="true" tabindex="-1"></a>bets_df <span class="ot">&lt;-</span> bets_df <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">hIP =</span> <span class="fu">ifelse</span>(hML <span class="sc">&gt;</span> <span class="dv">0</span>, <span class="dv">100</span><span class="sc">/</span>(hML<span class="sc">+</span><span class="dv">100</span>), <span class="fu">abs</span>(hML)<span class="sc">/</span>(<span class="fu">abs</span>(hML)<span class="sc">+</span><span class="dv">100</span>)),</span>
+<span id="cb3-3"><a href="bets.html#cb3-3" aria-hidden="true" tabindex="-1"></a>                              <span class="at">aIP =</span> <span class="fu">ifelse</span>(aML <span class="sc">&gt;</span> <span class="dv">0</span>, <span class="dv">100</span><span class="sc">/</span>(aML<span class="sc">+</span><span class="dv">100</span>), <span class="fu">abs</span>(aML)<span class="sc">/</span>(<span class="fu">abs</span>(aML)<span class="sc">+</span><span class="dv">100</span>)))</span>
+<span id="cb3-4"><a href="bets.html#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="bets.html#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">#change the bets_df names to the allgames_df names</span></span>
+<span id="cb3-6"><a href="bets.html#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co">#add bets_df team names to the teams_df</span></span>
+<span id="cb3-7"><a href="bets.html#cb3-7" aria-hidden="true" tabindex="-1"></a>teams_df <span class="ot">&lt;-</span> teams_df <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">betsname =</span> <span class="fu">sort</span>(<span class="fu">unique</span>(bets_df<span class="sc">$</span>hTeam)))</span>
+<span id="cb3-8"><a href="bets.html#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="bets.html#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">#fixing typos in bets_df</span></span>
+<span id="cb3-10"><a href="bets.html#cb3-10" aria-hidden="true" tabindex="-1"></a>bets_df[<span class="dv">1894</span>,<span class="dv">4</span>] <span class="ot">&lt;-</span> <span class="st">&quot;OklahomaCity&quot;</span></span>
+<span id="cb3-11"><a href="bets.html#cb3-11" aria-hidden="true" tabindex="-1"></a>bets_df[<span class="dv">1895</span>,<span class="dv">4</span>] <span class="ot">&lt;-</span> <span class="st">&quot;LAClippers&quot;</span></span></code></pre></div>
+<p>Create a new_bets_df with better formatting, correct columns</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="bets.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#looping to get the full names of teams and make a new df to be merged with allgames</span></span>
+<span id="cb4-2"><a href="bets.html#cb4-2" aria-hidden="true" tabindex="-1"></a>new_bets <span class="ot">&lt;-</span> <span class="fu">data.frame</span>()</span>
+<span id="cb4-3"><a href="bets.html#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(bets_df)){</span>
+<span id="cb4-4"><a href="bets.html#cb4-4" aria-hidden="true" tabindex="-1"></a>  home <span class="ot">&lt;-</span> bets_df<span class="sc">$</span>hTeam[i]</span>
+<span id="cb4-5"><a href="bets.html#cb4-5" aria-hidden="true" tabindex="-1"></a>  away <span class="ot">&lt;-</span> bets_df<span class="sc">$</span>aTeam[i]</span>
+<span id="cb4-6"><a href="bets.html#cb4-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-7"><a href="bets.html#cb4-7" aria-hidden="true" tabindex="-1"></a>  home_team <span class="ot">&lt;-</span> teams_df<span class="sc">$</span>teams_full[teams_df<span class="sc">$</span>betsname <span class="sc">==</span> home]</span>
+<span id="cb4-8"><a href="bets.html#cb4-8" aria-hidden="true" tabindex="-1"></a>  away_team <span class="ot">&lt;-</span> teams_df<span class="sc">$</span>teams_full[teams_df<span class="sc">$</span>betsname <span class="sc">==</span> away]</span>
+<span id="cb4-9"><a href="bets.html#cb4-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-10"><a href="bets.html#cb4-10" aria-hidden="true" tabindex="-1"></a>  line1 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(home_team,away_team)</span>
+<span id="cb4-11"><a href="bets.html#cb4-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-12"><a href="bets.html#cb4-12" aria-hidden="true" tabindex="-1"></a>  new_bets <span class="ot">&lt;-</span> <span class="fu">rbind</span>(new_bets,line1)</span>
+<span id="cb4-13"><a href="bets.html#cb4-13" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-14"><a href="bets.html#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="bets.html#cb4-15" aria-hidden="true" tabindex="-1"></a>new_bets_df <span class="ot">&lt;-</span> <span class="fu">cbind</span>(bets_df[,<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>],new_bets,bets_df[,<span class="dv">5</span><span class="sc">:</span><span class="dv">11</span>])</span>
+<span id="cb4-16"><a href="bets.html#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(line1,new_bets,away,away_team,home,home_team,i)</span></code></pre></div>
+<p>Correcting the date and season and column names:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="bets.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#trying to recreate the correct date format</span></span>
+<span id="cb5-2"><a href="bets.html#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb5-3"><a href="bets.html#cb5-3" aria-hidden="true" tabindex="-1"></a>new_bets_df <span class="ot">&lt;-</span> new_bets_df <span class="sc">%&gt;%</span> <span class="fu">mutate_at</span>(<span class="fu">c</span>(<span class="st">&#39;hDate&#39;</span>,<span class="st">&#39;season&#39;</span>), as.numeric) <span class="sc">%&gt;%</span></span>
+<span id="cb5-4"><a href="bets.html#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">hDate =</span> <span class="fu">ifelse</span>(<span class="fu">nchar</span>(<span class="fu">as.character</span>(hDate))<span class="sc">==</span><span class="dv">3</span>,<span class="fu">as.numeric</span>(<span class="fu">paste0</span>(<span class="st">&quot;0&quot;</span>,hDate)),<span class="fu">as.numeric</span>(hDate)))</span>
+<span id="cb5-5"><a href="bets.html#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="bets.html#cb5-6" aria-hidden="true" tabindex="-1"></a>new_bets_df <span class="ot">&lt;-</span> new_bets_df <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">year =</span> <span class="fu">case_when</span>(season <span class="sc">==</span> <span class="dv">2015</span> <span class="sc">~</span> <span class="fu">ifelse</span>(hDate<span class="sc">&gt;</span><span class="dv">999</span>,season<span class="dv">-1</span>,season),</span>
+<span id="cb5-7"><a href="bets.html#cb5-7" aria-hidden="true" tabindex="-1"></a>                                                       season <span class="sc">==</span> <span class="dv">2016</span> <span class="sc">~</span> <span class="fu">ifelse</span>(hDate<span class="sc">&gt;</span><span class="dv">999</span>,season<span class="dv">-1</span>,season),</span>
+<span id="cb5-8"><a href="bets.html#cb5-8" aria-hidden="true" tabindex="-1"></a>                                                       season <span class="sc">==</span> <span class="dv">2017</span> <span class="sc">~</span> <span class="fu">ifelse</span>(hDate<span class="sc">&gt;</span><span class="dv">999</span>,season<span class="dv">-1</span>,season),</span>
+<span id="cb5-9"><a href="bets.html#cb5-9" aria-hidden="true" tabindex="-1"></a>                                                       season <span class="sc">==</span> <span class="dv">2018</span> <span class="sc">~</span> <span class="fu">ifelse</span>(hDate<span class="sc">&gt;</span><span class="dv">999</span>,season<span class="dv">-1</span>,season),</span>
+<span id="cb5-10"><a href="bets.html#cb5-10" aria-hidden="true" tabindex="-1"></a>                                                       season <span class="sc">==</span> <span class="dv">2019</span> <span class="sc">~</span> <span class="fu">ifelse</span>(hDate<span class="sc">&gt;</span><span class="dv">999</span>,season<span class="dv">-1</span>,season)),</span>
+<span id="cb5-11"><a href="bets.html#cb5-11" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">hDate =</span> <span class="fu">ifelse</span>(<span class="fu">nchar</span>(<span class="fu">as.character</span>(hDate))<span class="sc">==</span><span class="dv">3</span>,<span class="fu">paste0</span>(<span class="st">&quot;0&quot;</span>,hDate),hDate),</span>
+<span id="cb5-12"><a href="bets.html#cb5-12" aria-hidden="true" tabindex="-1"></a>                                      <span class="at">Date =</span> <span class="fu">ymd</span>(<span class="fu">paste0</span>(year,hDate))) <span class="sc">%&gt;%</span></span>
+<span id="cb5-13"><a href="bets.html#cb5-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Date,season,<span class="dv">3</span><span class="sc">:</span><span class="dv">11</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb5-14"><a href="bets.html#cb5-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">date =</span> Date,</span>
+<span id="cb5-15"><a href="bets.html#cb5-15" aria-hidden="true" tabindex="-1"></a>         <span class="at">home_pts =</span> hFinal,</span>
+<span id="cb5-16"><a href="bets.html#cb5-16" aria-hidden="true" tabindex="-1"></a>         <span class="at">away_pts =</span> aFinal)</span>
+<span id="cb5-17"><a href="bets.html#cb5-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-18"><a href="bets.html#cb5-18" aria-hidden="true" tabindex="-1"></a>new_bets_df<span class="sc">$</span>date <span class="ot">&lt;-</span> <span class="fu">as.character</span>(new_bets_df<span class="sc">$</span>date)</span></code></pre></div>
+<p>Now the new_bets_df is ready to be merged with allgames_df:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="bets.html#cb6-1" aria-hidden="true" tabindex="-1"></a>mergetest <span class="ot">&lt;-</span> <span class="fu">merge</span>(<span class="at">x =</span> allgames_df, <span class="at">y =</span> new_bets_df, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">&quot;date&quot;</span>,<span class="st">&quot;home_team&quot;</span>,<span class="st">&quot;away_team&quot;</span>,<span class="st">&quot;home_pts&quot;</span>,<span class="st">&quot;away_pts&quot;</span>,<span class="st">&quot;game_outcome&quot;</span>,<span class="st">&quot;season&quot;</span>), <span class="at">all.x=</span><span class="cn">TRUE</span>)</span>
+<span id="cb6-2"><a href="bets.html#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="bets.html#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">#did this fully succeed or are there any NAs</span></span>
+<span id="cb6-4"><a href="bets.html#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(mergetest))</span>
+<span id="cb6-5"><a href="bets.html#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span>(<span class="fu">is.na</span>(mergetest), <span class="at">arr.ind=</span><span class="cn">TRUE</span>)</span>
+<span id="cb6-6"><a href="bets.html#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co">#apparently there are and they occurred in the same 3 rows: 182, 3104, 3706</span></span>
+<span id="cb6-7"><a href="bets.html#cb6-7" aria-hidden="true" tabindex="-1"></a>mergetest <span class="sc">%&gt;%</span> <span class="fu">slice</span>(<span class="fu">c</span>(<span class="dv">182</span>,<span class="dv">3104</span>,<span class="dv">3706</span>))</span>
+<span id="cb6-8"><a href="bets.html#cb6-8" aria-hidden="true" tabindex="-1"></a>new_bets_df <span class="sc">%&gt;%</span> <span class="fu">filter</span>(date <span class="sc">==</span> <span class="st">&quot;2014-11-21&quot;</span> <span class="sc">&amp;</span> home_team <span class="sc">==</span> <span class="st">&quot;Toronto Raptors&quot;</span>)</span>
+<span id="cb6-9"><a href="bets.html#cb6-9" aria-hidden="true" tabindex="-1"></a>new_bets_df <span class="sc">%&gt;%</span> <span class="fu">filter</span>(date <span class="sc">==</span> <span class="st">&quot;2017-01-20&quot;</span> <span class="sc">&amp;</span> home_team <span class="sc">==</span> <span class="st">&quot;Los Angeles Lakers&quot;</span>)</span>
+<span id="cb6-10"><a href="bets.html#cb6-10" aria-hidden="true" tabindex="-1"></a>new_bets_df <span class="sc">%&gt;%</span> <span class="fu">filter</span>(date <span class="sc">==</span> <span class="st">&quot;2017-10-19&quot;</span> <span class="sc">&amp;</span> home_team <span class="sc">==</span> <span class="st">&quot;Toronto Raptors&quot;</span>)</span>
+<span id="cb6-11"><a href="bets.html#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co">#there appears to be a typo in the recording of the away_pts in the new_bets_df, for now I will just manually input the hML,aML,hIP,aIP</span></span>
+<span id="cb6-12"><a href="bets.html#cb6-12" aria-hidden="true" tabindex="-1"></a>mergetest<span class="sc">$</span>hML[<span class="dv">182</span>] <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">430</span></span>
+<span id="cb6-13"><a href="bets.html#cb6-13" aria-hidden="true" tabindex="-1"></a>mergetest<span class="sc">$</span>aML[<span class="dv">182</span>] <span class="ot">&lt;-</span> <span class="dv">340</span></span>
+<span id="cb6-14"><a href="bets.html#cb6-14" aria-hidden="true" tabindex="-1"></a>mergetest<span class="sc">$</span>hIP[<span class="dv">182</span>] <span class="ot">&lt;-</span> <span class="fl">0.8113208</span></span>
+<span id="cb6-15"><a href="bets.html#cb6-15" aria-hidden="true" tabindex="-1"></a>mergetest<span class="sc">$</span>aIP[<span class="dv">182</span>] <span class="ot">&lt;-</span> <span class="fl">0.2272727</span></span>
+<span id="cb6-16"><a href="bets.html#cb6-16" aria-hidden="true" tabindex="-1"></a>mergetest<span class="sc">$</span>hML[<span class="dv">3104</span>] <span class="ot">&lt;-</span> <span class="dv">150</span></span>
+<span id="cb6-17"><a href="bets.html#cb6-17" aria-hidden="true" tabindex="-1"></a>mergetest<span class="sc">$</span>aML[<span class="dv">3104</span>] <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">170</span></span>
+<span id="cb6-18"><a href="bets.html#cb6-18" aria-hidden="true" tabindex="-1"></a>mergetest<span class="sc">$</span>hIP[<span class="dv">3104</span>] <span class="ot">&lt;-</span> <span class="fl">0.4</span></span>
+<span id="cb6-19"><a href="bets.html#cb6-19" aria-hidden="true" tabindex="-1"></a>mergetest<span class="sc">$</span>aIP[<span class="dv">3104</span>] <span class="ot">&lt;-</span> <span class="fl">0.6296296</span></span>
+<span id="cb6-20"><a href="bets.html#cb6-20" aria-hidden="true" tabindex="-1"></a>mergetest<span class="sc">$</span>hML[<span class="dv">3706</span>] <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">1400</span></span>
+<span id="cb6-21"><a href="bets.html#cb6-21" aria-hidden="true" tabindex="-1"></a>mergetest<span class="sc">$</span>aML[<span class="dv">3706</span>] <span class="ot">&lt;-</span> <span class="dv">800</span></span>
+<span id="cb6-22"><a href="bets.html#cb6-22" aria-hidden="true" tabindex="-1"></a>mergetest<span class="sc">$</span>hIP[<span class="dv">3706</span>] <span class="ot">&lt;-</span> <span class="fl">0.9333333</span></span>
+<span id="cb6-23"><a href="bets.html#cb6-23" aria-hidden="true" tabindex="-1"></a>mergetest<span class="sc">$</span>aIP[<span class="dv">3706</span>] <span class="ot">&lt;-</span> <span class="fl">0.1111111</span></span>
+<span id="cb6-24"><a href="bets.html#cb6-24" aria-hidden="true" tabindex="-1"></a><span class="co">#check again</span></span>
+<span id="cb6-25"><a href="bets.html#cb6-25" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span>(<span class="fu">is.na</span>(mergetest), <span class="at">arr.ind=</span><span class="cn">TRUE</span>)</span>
+<span id="cb6-26"><a href="bets.html#cb6-26" aria-hidden="true" tabindex="-1"></a><span class="co">#looks good</span></span></code></pre></div>
+<p>Would be nice if this was not called mergetest. Change later.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="bets.html#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(bets_df,new_bets_df)</span></code></pre></div>
 </div>
 <div id="exploratory-analysis" class="section level2 hasAnchor" number="4.2">
 <h2><span class="header-section-number">4.2</span> Exploratory Analysis<a href="bets.html#exploratory-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Distributions of moneylines, home and away:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="bets.html#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#home ML distribution</span></span>
+<span id="cb8-2"><a href="bets.html#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mergetest) <span class="sc">+</span></span>
+<span id="cb8-3"><a href="bets.html#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x=</span>hML),<span class="at">bins=</span><span class="dv">500</span>, <span class="at">color=</span><span class="st">&#39;#006BB6&#39;</span>,<span class="at">fill=</span><span class="st">&#39;#006BB6&#39;</span>) <span class="sc">+</span></span>
+<span id="cb8-4"><a href="bets.html#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="sc">-</span><span class="dv">1500</span>,<span class="dv">1500</span>) <span class="sc">+</span></span>
+<span id="cb8-5"><a href="bets.html#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.border =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb8-6"><a href="bets.html#cb8-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb8-7"><a href="bets.html#cb8-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>()) <span class="sc">+</span></span>
+<span id="cb8-8"><a href="bets.html#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&#39;home Money Line&#39;</span>) <span class="sc">+</span></span>
+<span id="cb8-9"><a href="bets.html#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&#39;home team Money line distribution&#39;</span>)</span>
+<span id="cb8-10"><a href="bets.html#cb8-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-11"><a href="bets.html#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="co">#away ML distribution</span></span>
+<span id="cb8-12"><a href="bets.html#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mergetest) <span class="sc">+</span></span>
+<span id="cb8-13"><a href="bets.html#cb8-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x=</span>aML),<span class="at">bins=</span><span class="dv">500</span>, <span class="at">color=</span><span class="st">&#39;#CE1141&#39;</span>,<span class="at">fill=</span><span class="st">&#39;#CE1141&#39;</span>) <span class="sc">+</span></span>
+<span id="cb8-14"><a href="bets.html#cb8-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlim</span>(<span class="sc">-</span><span class="dv">1500</span>,<span class="dv">1500</span>) <span class="sc">+</span></span>
+<span id="cb8-15"><a href="bets.html#cb8-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.border =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb8-16"><a href="bets.html#cb8-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb8-17"><a href="bets.html#cb8-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>()) <span class="sc">+</span></span>
+<span id="cb8-18"><a href="bets.html#cb8-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&#39;away Money Line&#39;</span>) <span class="sc">+</span></span>
+<span id="cb8-19"><a href="bets.html#cb8-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&#39;away team Money line distribution&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="bets.html#cb9-1" aria-hidden="true" tabindex="-1"></a>fig1_path <span class="ot">&lt;-</span> <span class="st">&quot;~</span><span class="sc">\\</span><span class="st">R</span><span class="sc">\\</span><span class="st">bookdown-demo-main</span><span class="sc">\\</span><span class="st">bookdown-demo-main</span><span class="sc">\\</span><span class="st">images</span><span class="sc">\\</span><span class="st">bets_hML_dist.png&quot;</span></span>
+<span id="cb9-2"><a href="bets.html#cb9-2" aria-hidden="true" tabindex="-1"></a>fig2_path <span class="ot">&lt;-</span> <span class="st">&quot;~</span><span class="sc">\\</span><span class="st">R</span><span class="sc">\\</span><span class="st">bookdown-demo-main</span><span class="sc">\\</span><span class="st">bookdown-demo-main</span><span class="sc">\\</span><span class="st">images</span><span class="sc">\\</span><span class="st">bets_aML_dist.png&quot;</span></span>
+<span id="cb9-3"><a href="bets.html#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="bets.html#cb9-4" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="fu">c</span>(fig1_path, fig2_path))</span></code></pre></div>
+<p><img src="images/bets_hML_dist.png" width="625" /><img src="images/bets_aML_dist.png" width="625" /></p>
+<p>Densities of implied probabilities (the ‘fair’ probability given the payout):</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="bets.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#home IP density</span></span>
+<span id="cb10-2"><a href="bets.html#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mergetest) <span class="sc">+</span></span>
+<span id="cb10-3"><a href="bets.html#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">x=</span>hIP), <span class="at">size=</span><span class="dv">1</span>, <span class="at">color=</span><span class="st">&#39;#006BB6&#39;</span>) <span class="sc">+</span></span>
+<span id="cb10-4"><a href="bets.html#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.border =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb10-5"><a href="bets.html#cb10-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb10-6"><a href="bets.html#cb10-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb10-7"><a href="bets.html#cb10-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb10-8"><a href="bets.html#cb10-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.ticks.y =</span> <span class="fu">element_blank</span>()) <span class="sc">+</span></span>
+<span id="cb10-9"><a href="bets.html#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&#39;home Implied Win Probability&#39;</span>) <span class="sc">+</span></span>
+<span id="cb10-10"><a href="bets.html#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&#39;home team Implied W Probability distribution&#39;</span>)</span>
+<span id="cb10-11"><a href="bets.html#cb10-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-12"><a href="bets.html#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="co">#away IP density</span></span>
+<span id="cb10-13"><a href="bets.html#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mergetest) <span class="sc">+</span></span>
+<span id="cb10-14"><a href="bets.html#cb10-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">x=</span>aIP), <span class="at">size=</span><span class="dv">1</span>, <span class="at">color=</span><span class="st">&#39;#CE1141&#39;</span>) <span class="sc">+</span></span>
+<span id="cb10-15"><a href="bets.html#cb10-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.border =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb10-16"><a href="bets.html#cb10-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb10-17"><a href="bets.html#cb10-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb10-18"><a href="bets.html#cb10-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb10-19"><a href="bets.html#cb10-19" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.ticks.y =</span> <span class="fu">element_blank</span>()) <span class="sc">+</span></span>
+<span id="cb10-20"><a href="bets.html#cb10-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&#39;away Implied Win Probability&#39;</span>) <span class="sc">+</span></span>
+<span id="cb10-21"><a href="bets.html#cb10-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&#39;away team Implied W Probability distribution&#39;</span>)</span>
+<span id="cb10-22"><a href="bets.html#cb10-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-23"><a href="bets.html#cb10-23" aria-hidden="true" tabindex="-1"></a><span class="co">#bolth</span></span>
+<span id="cb10-24"><a href="bets.html#cb10-24" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mergetest) <span class="sc">+</span></span>
+<span id="cb10-25"><a href="bets.html#cb10-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">x=</span>hIP), <span class="at">size=</span><span class="dv">1</span>, <span class="at">color=</span><span class="st">&#39;#006BB6&#39;</span>) <span class="sc">+</span></span>
+<span id="cb10-26"><a href="bets.html#cb10-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="fu">aes</span>(<span class="at">x=</span>aIP), <span class="at">size=</span><span class="dv">1</span>, <span class="at">color=</span><span class="st">&#39;#CE1141&#39;</span>) <span class="sc">+</span></span>
+<span id="cb10-27"><a href="bets.html#cb10-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">panel.border =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb10-28"><a href="bets.html#cb10-28" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb10-29"><a href="bets.html#cb10-29" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb10-30"><a href="bets.html#cb10-30" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.y =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb10-31"><a href="bets.html#cb10-31" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.ticks.y =</span> <span class="fu">element_blank</span>()) <span class="sc">+</span></span>
+<span id="cb10-32"><a href="bets.html#cb10-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&#39;Implied Win Probability&#39;</span>) <span class="sc">+</span></span>
+<span id="cb10-33"><a href="bets.html#cb10-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&#39;Implied W Probability distribution&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="bets.html#cb11-1" aria-hidden="true" tabindex="-1"></a>fig1_path <span class="ot">&lt;-</span> <span class="st">&quot;~</span><span class="sc">\\</span><span class="st">R</span><span class="sc">\\</span><span class="st">bookdown-demo-main</span><span class="sc">\\</span><span class="st">bookdown-demo-main</span><span class="sc">\\</span><span class="st">images</span><span class="sc">\\</span><span class="st">bets_hIP_density.png&quot;</span></span>
+<span id="cb11-2"><a href="bets.html#cb11-2" aria-hidden="true" tabindex="-1"></a>fig2_path <span class="ot">&lt;-</span> <span class="st">&quot;~</span><span class="sc">\\</span><span class="st">R</span><span class="sc">\\</span><span class="st">bookdown-demo-main</span><span class="sc">\\</span><span class="st">bookdown-demo-main</span><span class="sc">\\</span><span class="st">images</span><span class="sc">\\</span><span class="st">bets_aIP_density.png&quot;</span></span>
+<span id="cb11-3"><a href="bets.html#cb11-3" aria-hidden="true" tabindex="-1"></a>fig3_path <span class="ot">&lt;-</span> <span class="st">&quot;~</span><span class="sc">\\</span><span class="st">R</span><span class="sc">\\</span><span class="st">bookdown-demo-main</span><span class="sc">\\</span><span class="st">bookdown-demo-main</span><span class="sc">\\</span><span class="st">images</span><span class="sc">\\</span><span class="st">bets_bothIP_density.png&quot;</span></span>
+<span id="cb11-4"><a href="bets.html#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="bets.html#cb11-5" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="fu">c</span>(fig1_path, fig2_path, fig3_path))</span></code></pre></div>
+<p><img src="images/bets_hIP_density.png" width="50%" /><img src="images/bets_aIP_density.png" width="50%" /><img src="images/bets_bothIP_density.png" width="50%" /></p>
+<p>So, which types of bets are the good (better) bets? Taking a look here before ever using w_prob (because the model isn’t done anyway). Here is a plot where each game has been binned (using a cut with a required n per bin) to an IP bin: the line is implied probability in each bin; the dots are what actually happened in each. If the dot is equal to the line, it would mean making that bet is ‘fair’. If the implied probability is .5, say, you would break even if you placed every bet on each gameteam in that bin. If the gameteams in that bin only won 40% of the time, you would be down 20%.</p>
+<p>Plots like the elo bin reliability graph, home and away:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="bets.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#home</span></span>
+<span id="cb12-2"><a href="bets.html#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co">#visualizing real w% within implied probability bins</span></span>
+<span id="cb12-3"><a href="bets.html#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Hmisc)</span>
+<span id="cb12-4"><a href="bets.html#cb12-4" aria-hidden="true" tabindex="-1"></a>mergetest <span class="sc">%&gt;%</span></span>
+<span id="cb12-5"><a href="bets.html#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">bins_n =</span> <span class="fu">cut2</span>(hIP,<span class="at">m=</span><span class="dv">300</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb12-6"><a href="bets.html#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(bins_n) <span class="sc">%&gt;%</span></span>
+<span id="cb12-7"><a href="bets.html#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n=</span><span class="fu">n</span>(),</span>
+<span id="cb12-8"><a href="bets.html#cb12-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">pred_w.pct=</span><span class="fu">mean</span>(hIP),</span>
+<span id="cb12-9"><a href="bets.html#cb12-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">pred_w.pct_min=</span><span class="fu">min</span>(hIP),</span>
+<span id="cb12-10"><a href="bets.html#cb12-10" aria-hidden="true" tabindex="-1"></a>            <span class="at">pred_w.pct_max=</span><span class="fu">max</span>(hIP),</span>
+<span id="cb12-11"><a href="bets.html#cb12-11" aria-hidden="true" tabindex="-1"></a>            <span class="at">real_w.pct=</span><span class="fu">mean</span>(game_outcome<span class="sc">==</span><span class="dv">1</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb12-12"><a href="bets.html#cb12-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb12-13"><a href="bets.html#cb12-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x=</span>bins_n, <span class="at">y=</span>pred_w.pct), <span class="at">color=</span><span class="st">&#39;blue&#39;</span>, <span class="at">size=</span><span class="dv">1</span>, <span class="at">group=</span><span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb12-14"><a href="bets.html#cb12-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_ribbon</span>(<span class="fu">aes</span>(<span class="at">x=</span><span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(bins_n),<span class="at">ymax=</span>pred_w.pct_max,<span class="at">ymin=</span>pred_w.pct_min), <span class="at">fill=</span><span class="st">&#39;lightblue&#39;</span>, <span class="at">alpha=</span>.<span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb12-15"><a href="bets.html#cb12-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x=</span>bins_n, <span class="at">y=</span>real_w.pct), <span class="at">color=</span><span class="st">&#39;darkblue&#39;</span>) <span class="sc">+</span></span>
+<span id="cb12-16"><a href="bets.html#cb12-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">x=</span>bins_n,<span class="at">y=</span>real_w.pct<span class="sc">-</span>pred_w.pct,<span class="at">fill=</span>(real_w.pct<span class="sc">-</span>pred_w.pct <span class="sc">&gt;</span> <span class="dv">0</span>))) <span class="sc">+</span></span>
+<span id="cb12-17"><a href="bets.html#cb12-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.ticks.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb12-18"><a href="bets.html#cb12-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb12-19"><a href="bets.html#cb12-19" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>,</span>
+<span id="cb12-20"><a href="bets.html#cb12-20" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.border =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb12-21"><a href="bets.html#cb12-21" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb12-22"><a href="bets.html#cb12-22" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>()) <span class="sc">+</span></span>
+<span id="cb12-23"><a href="bets.html#cb12-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;home implied W probability&quot;</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">&#39;home real W%&#39;</span>) <span class="sc">+</span></span>
+<span id="cb12-24"><a href="bets.html#cb12-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&#39;home implied W prob vs real W%&#39;</span>)</span>
+<span id="cb12-25"><a href="bets.html#cb12-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-26"><a href="bets.html#cb12-26" aria-hidden="true" tabindex="-1"></a><span class="co">#away</span></span>
+<span id="cb12-27"><a href="bets.html#cb12-27" aria-hidden="true" tabindex="-1"></a><span class="co">#visualizing real w% within implied probability bins</span></span>
+<span id="cb12-28"><a href="bets.html#cb12-28" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Hmisc)</span>
+<span id="cb12-29"><a href="bets.html#cb12-29" aria-hidden="true" tabindex="-1"></a>mergetest <span class="sc">%&gt;%</span></span>
+<span id="cb12-30"><a href="bets.html#cb12-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">bins_n =</span> <span class="fu">cut2</span>(aIP,<span class="at">m=</span><span class="dv">300</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb12-31"><a href="bets.html#cb12-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(bins_n) <span class="sc">%&gt;%</span></span>
+<span id="cb12-32"><a href="bets.html#cb12-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n=</span><span class="fu">n</span>(),</span>
+<span id="cb12-33"><a href="bets.html#cb12-33" aria-hidden="true" tabindex="-1"></a>            <span class="at">pred_w.pct=</span><span class="fu">mean</span>(aIP),</span>
+<span id="cb12-34"><a href="bets.html#cb12-34" aria-hidden="true" tabindex="-1"></a>            <span class="at">pred_w.pct_min=</span><span class="fu">min</span>(aIP),</span>
+<span id="cb12-35"><a href="bets.html#cb12-35" aria-hidden="true" tabindex="-1"></a>            <span class="at">pred_w.pct_max=</span><span class="fu">max</span>(aIP),</span>
+<span id="cb12-36"><a href="bets.html#cb12-36" aria-hidden="true" tabindex="-1"></a>            <span class="at">real_w.pct=</span><span class="fu">mean</span>(game_outcome<span class="sc">==</span><span class="dv">0</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb12-37"><a href="bets.html#cb12-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb12-38"><a href="bets.html#cb12-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x=</span>bins_n, <span class="at">y=</span>pred_w.pct), <span class="at">color=</span><span class="st">&#39;#CE1141&#39;</span>, <span class="at">size=</span><span class="dv">1</span>, <span class="at">group=</span><span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb12-39"><a href="bets.html#cb12-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_ribbon</span>(<span class="fu">aes</span>(<span class="at">x=</span><span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(bins_n),<span class="at">ymax=</span>pred_w.pct_max,<span class="at">ymin=</span>pred_w.pct_min), <span class="at">fill=</span><span class="st">&#39;red&#39;</span>, <span class="at">alpha=</span>.<span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb12-40"><a href="bets.html#cb12-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x=</span>bins_n, <span class="at">y=</span>real_w.pct), <span class="at">color=</span><span class="st">&#39;darkred&#39;</span>) <span class="sc">+</span></span>
+<span id="cb12-41"><a href="bets.html#cb12-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">x=</span>bins_n,<span class="at">y=</span>real_w.pct<span class="sc">-</span>pred_w.pct,<span class="at">fill=</span>(real_w.pct<span class="sc">-</span>pred_w.pct <span class="sc">&gt;</span> <span class="dv">0</span>))) <span class="sc">+</span></span>
+<span id="cb12-42"><a href="bets.html#cb12-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.ticks.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb12-43"><a href="bets.html#cb12-43" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb12-44"><a href="bets.html#cb12-44" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>,</span>
+<span id="cb12-45"><a href="bets.html#cb12-45" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.border =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb12-46"><a href="bets.html#cb12-46" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb12-47"><a href="bets.html#cb12-47" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>()) <span class="sc">+</span></span>
+<span id="cb12-48"><a href="bets.html#cb12-48" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;away implied W probability&quot;</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">&#39;away real W%&#39;</span>) <span class="sc">+</span></span>
+<span id="cb12-49"><a href="bets.html#cb12-49" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&#39;away implied W prob vs real W%&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="bets.html#cb13-1" aria-hidden="true" tabindex="-1"></a>fig1_path <span class="ot">&lt;-</span> <span class="st">&quot;~</span><span class="sc">\\</span><span class="st">R</span><span class="sc">\\</span><span class="st">bookdown-demo-main</span><span class="sc">\\</span><span class="st">bookdown-demo-main</span><span class="sc">\\</span><span class="st">images</span><span class="sc">\\</span><span class="st">bets_realvhIP_w.png&quot;</span></span>
+<span id="cb13-2"><a href="bets.html#cb13-2" aria-hidden="true" tabindex="-1"></a>fig2_path <span class="ot">&lt;-</span> <span class="st">&quot;~</span><span class="sc">\\</span><span class="st">R</span><span class="sc">\\</span><span class="st">bookdown-demo-main</span><span class="sc">\\</span><span class="st">bookdown-demo-main</span><span class="sc">\\</span><span class="st">images</span><span class="sc">\\</span><span class="st">bets_realvaIP_w.png&quot;</span></span>
+<span id="cb13-3"><a href="bets.html#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="bets.html#cb13-4" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="fu">c</span>(fig1_path, fig2_path))</span></code></pre></div>
+<p><img src="images/bets_realvhIP_w.png" width="650" /><img src="images/bets_realvaIP_w.png" width="650" /></p>
+<p>In both cases, it really looks like the favorites are bad bets. In the case of hIP, it’s around .6, aIP is around .45. What would the payouts be (in each bin) if you placed a bet on every gameteam in the bin.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="bets.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">#home</span></span>
+<span id="cb14-2"><a href="bets.html#cb14-2" aria-hidden="true" tabindex="-1"></a>mergetest <span class="sc">%&gt;%</span></span>
+<span id="cb14-3"><a href="bets.html#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">hPay =</span> <span class="fu">case_when</span>(game_outcome <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="fu">ifelse</span>(hML <span class="sc">&lt;</span> <span class="dv">0</span>,(<span class="dv">100</span><span class="sc">/</span><span class="fu">abs</span>(hML)),hML<span class="sc">/</span><span class="dv">100</span>),</span>
+<span id="cb14-4"><a href="bets.html#cb14-4" aria-hidden="true" tabindex="-1"></a>                          game_outcome <span class="sc">==</span> <span class="dv">0</span> <span class="sc">~</span> <span class="sc">-</span><span class="dv">1</span>),</span>
+<span id="cb14-5"><a href="bets.html#cb14-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">aPay =</span> <span class="fu">case_when</span>(game_outcome <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="sc">-</span><span class="dv">1</span>,</span>
+<span id="cb14-6"><a href="bets.html#cb14-6" aria-hidden="true" tabindex="-1"></a>                          game_outcome <span class="sc">==</span> <span class="dv">0</span> <span class="sc">~</span> <span class="fu">ifelse</span>(aML <span class="sc">&lt;</span> <span class="dv">0</span>,<span class="dv">100</span><span class="sc">/</span><span class="fu">abs</span>(aML),aML<span class="sc">/</span><span class="dv">100</span>))) <span class="sc">%&gt;%</span></span>
+<span id="cb14-7"><a href="bets.html#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">bins_n =</span> <span class="fu">cut2</span>(hIP,<span class="at">m=</span><span class="dv">300</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb14-8"><a href="bets.html#cb14-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(bins_n) <span class="sc">%&gt;%</span></span>
+<span id="cb14-9"><a href="bets.html#cb14-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n=</span><span class="fu">n</span>(),</span>
+<span id="cb14-10"><a href="bets.html#cb14-10" aria-hidden="true" tabindex="-1"></a>            <span class="at">pred_w.pct=</span><span class="fu">mean</span>(hIP),</span>
+<span id="cb14-11"><a href="bets.html#cb14-11" aria-hidden="true" tabindex="-1"></a>            <span class="at">pred_w.pct_min=</span><span class="fu">min</span>(hIP),</span>
+<span id="cb14-12"><a href="bets.html#cb14-12" aria-hidden="true" tabindex="-1"></a>            <span class="at">pred_w.pct_max=</span><span class="fu">max</span>(hIP),</span>
+<span id="cb14-13"><a href="bets.html#cb14-13" aria-hidden="true" tabindex="-1"></a>            <span class="at">real_w.pct=</span><span class="fu">mean</span>(game_outcome<span class="sc">==</span><span class="dv">1</span>),</span>
+<span id="cb14-14"><a href="bets.html#cb14-14" aria-hidden="true" tabindex="-1"></a>            <span class="at">payout =</span> <span class="fu">mean</span>(hPay)) <span class="sc">%&gt;%</span></span>
+<span id="cb14-15"><a href="bets.html#cb14-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb14-16"><a href="bets.html#cb14-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x=</span>bins_n, <span class="at">y=</span>pred_w.pct), <span class="at">color=</span><span class="st">&#39;blue&#39;</span>, <span class="at">size=</span><span class="dv">1</span>, <span class="at">group=</span><span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb14-17"><a href="bets.html#cb14-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_ribbon</span>(<span class="fu">aes</span>(<span class="at">x=</span><span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(bins_n),<span class="at">ymax=</span>pred_w.pct_max,<span class="at">ymin=</span>pred_w.pct_min), <span class="at">fill=</span><span class="st">&#39;lightblue&#39;</span>, <span class="at">alpha=</span>.<span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb14-18"><a href="bets.html#cb14-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x=</span>bins_n, <span class="at">y=</span>pred_w.pct <span class="sc">+</span> payout), <span class="at">color=</span><span class="st">&#39;darkblue&#39;</span>) <span class="sc">+</span></span>
+<span id="cb14-19"><a href="bets.html#cb14-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">x=</span>bins_n,<span class="at">y=</span>payout,<span class="at">fill=</span>(payout <span class="sc">&gt;</span> <span class="dv">0</span>))) <span class="sc">+</span></span>
+<span id="cb14-20"><a href="bets.html#cb14-20" aria-hidden="true" tabindex="-1"></a>  <span class="co">#geom_vline(xintercept = 10, linetype=&#39;dotted&#39;) +</span></span>
+<span id="cb14-21"><a href="bets.html#cb14-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.ticks.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb14-22"><a href="bets.html#cb14-22" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb14-23"><a href="bets.html#cb14-23" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.border =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb14-24"><a href="bets.html#cb14-24" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb14-25"><a href="bets.html#cb14-25" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb14-26"><a href="bets.html#cb14-26" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="sc">+</span></span>
+<span id="cb14-27"><a href="bets.html#cb14-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;home implied W probability&quot;</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">&#39;home real W%&#39;</span>) <span class="sc">+</span></span>
+<span id="cb14-28"><a href="bets.html#cb14-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&#39;home implied W prob vs real W%&#39;</span>)</span>
+<span id="cb14-29"><a href="bets.html#cb14-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-30"><a href="bets.html#cb14-30" aria-hidden="true" tabindex="-1"></a><span class="co">#away</span></span>
+<span id="cb14-31"><a href="bets.html#cb14-31" aria-hidden="true" tabindex="-1"></a>mergetest <span class="sc">%&gt;%</span></span>
+<span id="cb14-32"><a href="bets.html#cb14-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">hPay =</span> <span class="fu">case_when</span>(game_outcome <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="fu">ifelse</span>(hML <span class="sc">&lt;</span> <span class="dv">0</span>,(<span class="dv">100</span><span class="sc">/</span><span class="fu">abs</span>(hML)),hML<span class="sc">/</span><span class="dv">100</span>),</span>
+<span id="cb14-33"><a href="bets.html#cb14-33" aria-hidden="true" tabindex="-1"></a>                          game_outcome <span class="sc">==</span> <span class="dv">0</span> <span class="sc">~</span> <span class="sc">-</span><span class="dv">1</span>),</span>
+<span id="cb14-34"><a href="bets.html#cb14-34" aria-hidden="true" tabindex="-1"></a>         <span class="at">aPay =</span> <span class="fu">case_when</span>(game_outcome <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="sc">-</span><span class="dv">1</span>,</span>
+<span id="cb14-35"><a href="bets.html#cb14-35" aria-hidden="true" tabindex="-1"></a>                          game_outcome <span class="sc">==</span> <span class="dv">0</span> <span class="sc">~</span> <span class="fu">ifelse</span>(aML <span class="sc">&lt;</span> <span class="dv">0</span>,<span class="dv">100</span><span class="sc">/</span><span class="fu">abs</span>(aML),aML<span class="sc">/</span><span class="dv">100</span>))) <span class="sc">%&gt;%</span></span>
+<span id="cb14-36"><a href="bets.html#cb14-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">bins_n =</span> <span class="fu">cut2</span>(aIP,<span class="at">m=</span><span class="dv">300</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb14-37"><a href="bets.html#cb14-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(bins_n) <span class="sc">%&gt;%</span></span>
+<span id="cb14-38"><a href="bets.html#cb14-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n=</span><span class="fu">n</span>(),</span>
+<span id="cb14-39"><a href="bets.html#cb14-39" aria-hidden="true" tabindex="-1"></a>            <span class="at">pred_w.pct=</span><span class="fu">mean</span>(aIP),</span>
+<span id="cb14-40"><a href="bets.html#cb14-40" aria-hidden="true" tabindex="-1"></a>            <span class="at">pred_w.pct_min=</span><span class="fu">min</span>(aIP),</span>
+<span id="cb14-41"><a href="bets.html#cb14-41" aria-hidden="true" tabindex="-1"></a>            <span class="at">pred_w.pct_max=</span><span class="fu">max</span>(aIP),</span>
+<span id="cb14-42"><a href="bets.html#cb14-42" aria-hidden="true" tabindex="-1"></a>            <span class="at">real_w.pct=</span><span class="fu">mean</span>(game_outcome<span class="sc">==</span><span class="dv">0</span>),</span>
+<span id="cb14-43"><a href="bets.html#cb14-43" aria-hidden="true" tabindex="-1"></a>            <span class="at">payout =</span> <span class="fu">mean</span>(aPay)) <span class="sc">%&gt;%</span></span>
+<span id="cb14-44"><a href="bets.html#cb14-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb14-45"><a href="bets.html#cb14-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x=</span>bins_n, <span class="at">y=</span>pred_w.pct), <span class="at">color=</span><span class="st">&#39;#CE1141&#39;</span>, <span class="at">size=</span><span class="dv">1</span>, <span class="at">group=</span><span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb14-46"><a href="bets.html#cb14-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_ribbon</span>(<span class="fu">aes</span>(<span class="at">x=</span><span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(bins_n),<span class="at">ymax=</span>pred_w.pct_max,<span class="at">ymin=</span>pred_w.pct_min), <span class="at">fill=</span><span class="st">&#39;red&#39;</span>, <span class="at">alpha=</span>.<span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb14-47"><a href="bets.html#cb14-47" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x=</span>bins_n, <span class="at">y=</span>pred_w.pct <span class="sc">+</span> payout), <span class="at">color=</span><span class="st">&#39;darkred&#39;</span>) <span class="sc">+</span></span>
+<span id="cb14-48"><a href="bets.html#cb14-48" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">x=</span>bins_n,<span class="at">y=</span>payout,<span class="at">fill=</span>(payout <span class="sc">&gt;</span> <span class="dv">0</span>))) <span class="sc">+</span></span>
+<span id="cb14-49"><a href="bets.html#cb14-49" aria-hidden="true" tabindex="-1"></a>  <span class="co">#geom_vline(xintercept=11, linetype=&#39;dotted&#39;) +</span></span>
+<span id="cb14-50"><a href="bets.html#cb14-50" aria-hidden="true" tabindex="-1"></a>  <span class="co">#geom_text(aes(x=11,y = .9,label=&#39;.45&#39;)) +</span></span>
+<span id="cb14-51"><a href="bets.html#cb14-51" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.ticks.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb14-52"><a href="bets.html#cb14-52" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb14-53"><a href="bets.html#cb14-53" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.border =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb14-54"><a href="bets.html#cb14-54" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.major =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb14-55"><a href="bets.html#cb14-55" aria-hidden="true" tabindex="-1"></a>        <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb14-56"><a href="bets.html#cb14-56" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>) <span class="sc">+</span></span>
+<span id="cb14-57"><a href="bets.html#cb14-57" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;away implied W probability&quot;</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">&#39;away real W%&#39;</span>) <span class="sc">+</span></span>
+<span id="cb14-58"><a href="bets.html#cb14-58" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">&#39;away implied W prob vs real W%&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="bets.html#cb15-1" aria-hidden="true" tabindex="-1"></a>fig1_path <span class="ot">&lt;-</span> <span class="st">&quot;~</span><span class="sc">\\</span><span class="st">R</span><span class="sc">\\</span><span class="st">bookdown-demo-main</span><span class="sc">\\</span><span class="st">bookdown-demo-main</span><span class="sc">\\</span><span class="st">images</span><span class="sc">\\</span><span class="st">bets_realvhIP_pay.png&quot;</span></span>
+<span id="cb15-2"><a href="bets.html#cb15-2" aria-hidden="true" tabindex="-1"></a>fig2_path <span class="ot">&lt;-</span> <span class="st">&quot;~</span><span class="sc">\\</span><span class="st">R</span><span class="sc">\\</span><span class="st">bookdown-demo-main</span><span class="sc">\\</span><span class="st">bookdown-demo-main</span><span class="sc">\\</span><span class="st">images</span><span class="sc">\\</span><span class="st">bets_realvaIP_pay.png&quot;</span></span>
+<span id="cb15-3"><a href="bets.html#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="bets.html#cb15-4" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="fu">c</span>(fig1_path, fig2_path))</span></code></pre></div>
+<p><img src="images/bets_realvhIP_pay.png" width="650" /><img src="images/bets_realvaIP_pay.png" width="650" /></p>
 </div>
 <div id="betting-strategies" class="section level2 hasAnchor" number="4.3">
 <h2><span class="header-section-number">4.3</span> Betting Strategies<a href="bets.html#betting-strategies" class="anchor-section" aria-label="Anchor link to header"></a></h2>
