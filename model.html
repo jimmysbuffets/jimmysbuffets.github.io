@@ -23,7 +23,7 @@
 <meta name="author" content="Alex Rubin" />
 
 
-<meta name="date" content="2022-10-26" />
+<meta name="date" content="2022-10-31" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -176,7 +176,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4" data-path="bets.html"><a href="bets.html"><i class="fa fa-check"></i><b>4</b> Betting Strategy</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="bets.html"><a href="bets.html#scraping-bet-data"><i class="fa fa-check"></i><b>4.1</b> Scraping Bet Data</a></li>
+<li class="chapter" data-level="4.1" data-path="bets.html"><a href="bets.html#getting-historical-data"><i class="fa fa-check"></i><b>4.1</b> Getting Historical Data</a></li>
 <li class="chapter" data-level="4.2" data-path="bets.html"><a href="bets.html#exploratory-analysis"><i class="fa fa-check"></i><b>4.2</b> Exploratory Analysis</a></li>
 <li class="chapter" data-level="4.3" data-path="bets.html"><a href="bets.html#betting-strategies"><i class="fa fa-check"></i><b>4.3</b> Betting Strategies</a></li>
 <li class="chapter" data-level="4.4" data-path="bets.html"><a href="bets.html#betting-strategy-results"><i class="fa fa-check"></i><b>4.4</b> Betting Strategy Results</a></li>
@@ -1695,6 +1695,7 @@ If running from the beginning, should now have the <strong>logdfs</strong>, <str
 <span id="cb90-20"><a href="model.html#cb90-20" aria-hidden="true" tabindex="-1"></a>         <span class="at">path =</span> <span class="st">&#39;~</span><span class="sc">\\</span><span class="st">R</span><span class="sc">\\</span><span class="st">bookdown-demo-main</span><span class="sc">\\</span><span class="st">bookdown-demo-main</span><span class="sc">\\</span><span class="st">images&#39;</span>,</span>
 <span id="cb90-21"><a href="model.html#cb90-21" aria-hidden="true" tabindex="-1"></a>         <span class="at">width =</span> <span class="dv">10</span>, <span class="at">height =</span> <span class="dv">7</span>, <span class="at">units =</span> <span class="st">&quot;cm&quot;</span>)</span>
 <span id="cb90-22"><a href="model.html#cb90-22" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>Add rm() here.</p>
 <div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="model.html#cb91-1" aria-hidden="true" tabindex="-1"></a>fig1_path <span class="ot">&lt;-</span> <span class="st">&quot;~</span><span class="sc">\\</span><span class="st">R</span><span class="sc">\\</span><span class="st">bookdown-demo-main</span><span class="sc">\\</span><span class="st">bookdown-demo-main</span><span class="sc">\\</span><span class="st">images</span><span class="sc">\\</span><span class="st">ts_h_w_prob_dist.png&quot;</span></span>
 <span id="cb91-2"><a href="model.html#cb91-2" aria-hidden="true" tabindex="-1"></a>fig2_path <span class="ot">&lt;-</span> <span class="st">&quot;~</span><span class="sc">\\</span><span class="st">R</span><span class="sc">\\</span><span class="st">bookdown-demo-main</span><span class="sc">\\</span><span class="st">bookdown-demo-main</span><span class="sc">\\</span><span class="st">images</span><span class="sc">\\</span><span class="st">ts_h_w_prob_smooth.png&quot;</span></span>
 <span id="cb91-3"><a href="model.html#cb91-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1706,9 +1707,132 @@ If running from the beginning, should now have the <strong>logdfs</strong>, <str
 <span id="cb92-4"><a href="model.html#cb92-4" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="fu">c</span>(fig1_path, fig2_path))</span></code></pre></div>
 <p><img src="images/ts_hSTDAST._dist.png" width="50%" /><img src="images/ts_hSTDAST._smooth.png" width="50%" /></p>
 <p>Need to figure out how to show all ~40 graphs here. Some observations: 1) The distributions look pretty normal, a few have long right tails (BLK%, FT/FGA, FTr, X3PAr). AST% is a perhaps interesting case, where there is a bump to the right of the median that perhaps is explanatory for the AST% w% graph. 2) There are a few broad categories of correlation graphs: a) h_w_prob; b) positively related: eFG%, ORtg, PTS, TS%; c) negatively related: DRtg, oeFG%, oPTS, d) no strong relationship: BLK%, DRB%, FT/FGA, FTr, ORB%, oTOV%, Pace, STL%, TOV%, TRB%, e) sudden shifts: AST%, X3PAr. 3) What explains the AST% graph? Probably an artifact of there being a few exceptionally good teams with high AST%. Alternatively, an elite AST% is particularly informative. Looks like the median is around 57.5 and the rise starts around 60.</p>
+<p>I suppose the stats that are positively correlated are baked into the elo already, but perhaps regressions can be elucidative. Probably all the team stats are in some way baked in.</p>
 </div>
 <div id="engineered-stats" class="section level3 hasAnchor" number="3.6.4">
 <h3><span class="header-section-number">3.6.4</span> Engineered Stats<a href="model.html#engineered-stats" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Are there any other meaningful data other than the team’s season-to-date stats? Rigor of team’s schedule, injuries, recent form come to mind. You need to add the engineered stats (back-to-back games, travel days, blowout). Injuries are a big ask. In a previous iteration I tried some versions of recent form to no avail.</p>
+<p>Below is the loop that makes allgames_df2 with engineered stats added:</p>
+<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="model.html#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="co">#set empty dataframe to be filled with prev_g info</span></span>
+<span id="cb93-2"><a href="model.html#cb93-2" aria-hidden="true" tabindex="-1"></a>home_prev_g_stats <span class="ot">&lt;-</span> <span class="fu">data.frame</span>()</span>
+<span id="cb93-3"><a href="model.html#cb93-3" aria-hidden="true" tabindex="-1"></a>away_prev_g_stats <span class="ot">&lt;-</span> <span class="fu">data.frame</span>()</span>
+<span id="cb93-4"><a href="model.html#cb93-4" aria-hidden="true" tabindex="-1"></a>home_prev_82g_stats <span class="ot">&lt;-</span> <span class="fu">data.frame</span>()</span>
+<span id="cb93-5"><a href="model.html#cb93-5" aria-hidden="true" tabindex="-1"></a>away_prev_82g_stats <span class="ot">&lt;-</span> <span class="fu">data.frame</span>()</span>
+<span id="cb93-6"><a href="model.html#cb93-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb93-7"><a href="model.html#cb93-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(allgames_df)) {</span>
+<span id="cb93-8"><a href="model.html#cb93-8" aria-hidden="true" tabindex="-1"></a>  home_team <span class="ot">&lt;-</span> allgames_df<span class="sc">$</span>home_team[i]</span>
+<span id="cb93-9"><a href="model.html#cb93-9" aria-hidden="true" tabindex="-1"></a>  away_team <span class="ot">&lt;-</span> allgames_df<span class="sc">$</span>away_team[i]</span>
+<span id="cb93-10"><a href="model.html#cb93-10" aria-hidden="true" tabindex="-1"></a>  date <span class="ot">&lt;-</span> allgames_df<span class="sc">$</span>date[i]</span>
+<span id="cb93-11"><a href="model.html#cb93-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb93-12"><a href="model.html#cb93-12" aria-hidden="true" tabindex="-1"></a>  <span class="co">#get team abbreviations by referencing the teams_df</span></span>
+<span id="cb93-13"><a href="model.html#cb93-13" aria-hidden="true" tabindex="-1"></a>  home_team_abv <span class="ot">&lt;-</span> teams_df<span class="sc">$</span>teams_abr[teams_df<span class="sc">$</span>teams_full <span class="sc">==</span> home_team]</span>
+<span id="cb93-14"><a href="model.html#cb93-14" aria-hidden="true" tabindex="-1"></a>  away_team_abv <span class="ot">&lt;-</span> teams_df<span class="sc">$</span>teams_abr[teams_df<span class="sc">$</span>teams_full <span class="sc">==</span> away_team]</span>
+<span id="cb93-15"><a href="model.html#cb93-15" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb93-16"><a href="model.html#cb93-16" aria-hidden="true" tabindex="-1"></a>  <span class="co">#get the indices in the teamglfull for the hometeamgame and awayteamgame</span></span>
+<span id="cb93-17"><a href="model.html#cb93-17" aria-hidden="true" tabindex="-1"></a>  homeind <span class="ot">&lt;-</span> <span class="fu">which</span>((teamglfull<span class="sc">$</span>Team <span class="sc">==</span> home_team_abv)  <span class="sc">&amp;</span> (teamglfull<span class="sc">$</span>Date <span class="sc">==</span> date))</span>
+<span id="cb93-18"><a href="model.html#cb93-18" aria-hidden="true" tabindex="-1"></a>  awayind <span class="ot">&lt;-</span> <span class="fu">which</span>((teamglfull<span class="sc">$</span>Team <span class="sc">==</span> away_team_abv)  <span class="sc">&amp;</span> (teamglfull<span class="sc">$</span>Date <span class="sc">==</span> date))</span>
+<span id="cb93-19"><a href="model.html#cb93-19" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb93-20"><a href="model.html#cb93-20" aria-hidden="true" tabindex="-1"></a>  <span class="co">#calc indices for each team&#39;s previous game and previous 82 games</span></span>
+<span id="cb93-21"><a href="model.html#cb93-21" aria-hidden="true" tabindex="-1"></a>  homeind_prev <span class="ot">&lt;-</span> <span class="fu">pmax</span>((homeind<span class="dv">-1</span>),<span class="dv">0</span>)</span>
+<span id="cb93-22"><a href="model.html#cb93-22" aria-hidden="true" tabindex="-1"></a>  awayind_prev <span class="ot">&lt;-</span> <span class="fu">pmax</span>((awayind<span class="dv">-1</span>),<span class="dv">0</span>)</span>
+<span id="cb93-23"><a href="model.html#cb93-23" aria-hidden="true" tabindex="-1"></a>  homeind_prev82 <span class="ot">&lt;-</span> <span class="fu">pmax</span>((homeind<span class="dv">-82</span>),<span class="dv">0</span>)<span class="sc">:</span><span class="fu">pmax</span>((homeind<span class="dv">-1</span>),<span class="dv">0</span>)</span>
+<span id="cb93-24"><a href="model.html#cb93-24" aria-hidden="true" tabindex="-1"></a>  awayind_prev82 <span class="ot">&lt;-</span> <span class="fu">pmax</span>((awayind<span class="dv">-82</span>),<span class="dv">0</span>)<span class="sc">:</span><span class="fu">pmax</span>((awayind<span class="dv">-1</span>),<span class="dv">0</span>)</span>
+<span id="cb93-25"><a href="model.html#cb93-25" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb93-26"><a href="model.html#cb93-26" aria-hidden="true" tabindex="-1"></a>  <span class="co">#pull the previous game&#39;s details</span></span>
+<span id="cb93-27"><a href="model.html#cb93-27" aria-hidden="true" tabindex="-1"></a>  home_prev_g <span class="ot">&lt;-</span> teamglfull[homeind_prev, ] <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Team<span class="sc">==</span>home_team_abv)</span>
+<span id="cb93-28"><a href="model.html#cb93-28" aria-hidden="true" tabindex="-1"></a>  away_prev_g <span class="ot">&lt;-</span> teamglfull[awayind_prev, ] <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Team<span class="sc">==</span>away_team_abv)</span>
+<span id="cb93-29"><a href="model.html#cb93-29" aria-hidden="true" tabindex="-1"></a>  home_prev_82g <span class="ot">&lt;-</span> teamglfull[homeind_prev82, ] <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Team<span class="sc">==</span>home_team_abv)</span>
+<span id="cb93-30"><a href="model.html#cb93-30" aria-hidden="true" tabindex="-1"></a>  away_prev_82g <span class="ot">&lt;-</span> teamglfull[awayind_prev82, ] <span class="sc">%&gt;%</span> <span class="fu">filter</span>(Team<span class="sc">==</span>away_team_abv)</span>
+<span id="cb93-31"><a href="model.html#cb93-31" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb93-32"><a href="model.html#cb93-32" aria-hidden="true" tabindex="-1"></a>  <span class="co">#engineered stats adding</span></span>
+<span id="cb93-33"><a href="model.html#cb93-33" aria-hidden="true" tabindex="-1"></a>  <span class="co">#back to back plus travel</span></span>
+<span id="cb93-34"><a href="model.html#cb93-34" aria-hidden="true" tabindex="-1"></a>  home_b2btr <span class="ot">&lt;-</span> <span class="cf">if</span> (<span class="fu">length</span>(home_prev_g<span class="sc">$</span>Date)<span class="sc">&gt;</span><span class="dv">0</span>){</span>
+<span id="cb93-35"><a href="model.html#cb93-35" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (home_prev_g<span class="sc">$</span>Date <span class="sc">==</span> <span class="fu">as.Date</span>(date) <span class="sc">-</span> <span class="dv">1</span>) {</span>
+<span id="cb93-36"><a href="model.html#cb93-36" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (home_prev_g<span class="sc">$</span><span class="st">`</span><span class="at">H/A</span><span class="st">`</span><span class="sc">==</span><span class="st">&quot;A&quot;</span>) {</span>
+<span id="cb93-37"><a href="model.html#cb93-37" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;Ax&quot;</span></span>
+<span id="cb93-38"><a href="model.html#cb93-38" aria-hidden="true" tabindex="-1"></a>      } <span class="cf">else</span> <span class="cf">if</span> (home_prev_g<span class="sc">$</span><span class="st">`</span><span class="at">H/A</span><span class="st">`</span><span class="sc">==</span><span class="st">&quot;H&quot;</span>) {</span>
+<span id="cb93-39"><a href="model.html#cb93-39" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;Hx&quot;</span></span>
+<span id="cb93-40"><a href="model.html#cb93-40" aria-hidden="true" tabindex="-1"></a>      } <span class="cf">else</span> {<span class="dv">0</span></span>
+<span id="cb93-41"><a href="model.html#cb93-41" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb93-42"><a href="model.html#cb93-42" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {<span class="dv">0</span></span>
+<span id="cb93-43"><a href="model.html#cb93-43" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb93-44"><a href="model.html#cb93-44" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span>{<span class="dv">0</span></span>
+<span id="cb93-45"><a href="model.html#cb93-45" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb93-46"><a href="model.html#cb93-46" aria-hidden="true" tabindex="-1"></a>  away_b2btr <span class="ot">&lt;-</span> <span class="cf">if</span> (<span class="fu">length</span>(away_prev_g<span class="sc">$</span>Date)<span class="sc">&gt;</span><span class="dv">0</span>){</span>
+<span id="cb93-47"><a href="model.html#cb93-47" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (away_prev_g<span class="sc">$</span>Date <span class="sc">==</span> <span class="fu">as.Date</span>(date) <span class="sc">-</span> <span class="dv">1</span>) {</span>
+<span id="cb93-48"><a href="model.html#cb93-48" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (away_prev_g<span class="sc">$</span><span class="st">`</span><span class="at">H/A</span><span class="st">`</span><span class="sc">==</span><span class="st">&quot;A&quot;</span>) {</span>
+<span id="cb93-49"><a href="model.html#cb93-49" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;Ax&quot;</span></span>
+<span id="cb93-50"><a href="model.html#cb93-50" aria-hidden="true" tabindex="-1"></a>      } <span class="cf">else</span> <span class="cf">if</span> (away_prev_g<span class="sc">$</span><span class="st">`</span><span class="at">H/A</span><span class="st">`</span><span class="sc">==</span><span class="st">&quot;H&quot;</span>) {</span>
+<span id="cb93-51"><a href="model.html#cb93-51" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;Hx&quot;</span></span>
+<span id="cb93-52"><a href="model.html#cb93-52" aria-hidden="true" tabindex="-1"></a>      } <span class="cf">else</span> {<span class="dv">0</span></span>
+<span id="cb93-53"><a href="model.html#cb93-53" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb93-54"><a href="model.html#cb93-54" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {<span class="dv">0</span></span>
+<span id="cb93-55"><a href="model.html#cb93-55" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb93-56"><a href="model.html#cb93-56" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span>{<span class="dv">0</span></span>
+<span id="cb93-57"><a href="model.html#cb93-57" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb93-58"><a href="model.html#cb93-58" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb93-59"><a href="model.html#cb93-59" aria-hidden="true" tabindex="-1"></a>  <span class="co">#was the previous game a blowout</span></span>
+<span id="cb93-60"><a href="model.html#cb93-60" aria-hidden="true" tabindex="-1"></a>  home_blow <span class="ot">&lt;-</span> <span class="cf">if</span> (<span class="fu">length</span>(home_prev_g<span class="sc">$</span>Date)<span class="sc">&gt;</span><span class="dv">0</span>){</span>
+<span id="cb93-61"><a href="model.html#cb93-61" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (home_prev_g<span class="sc">$</span>PTS <span class="sc">-</span> home_prev_g<span class="sc">$</span>oPTS <span class="sc">&gt;</span> <span class="dv">19</span>) {</span>
+<span id="cb93-62"><a href="model.html#cb93-62" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;bW&quot;</span></span>
+<span id="cb93-63"><a href="model.html#cb93-63" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> <span class="cf">if</span> (home_prev_g<span class="sc">$</span>oPTS <span class="sc">-</span> home_prev_g<span class="sc">$</span>PTS <span class="sc">&gt;</span> <span class="dv">19</span>) {</span>
+<span id="cb93-64"><a href="model.html#cb93-64" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;bL&quot;</span></span>
+<span id="cb93-65"><a href="model.html#cb93-65" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {<span class="dv">0</span></span>
+<span id="cb93-66"><a href="model.html#cb93-66" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb93-67"><a href="model.html#cb93-67" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span>{<span class="dv">0</span></span>
+<span id="cb93-68"><a href="model.html#cb93-68" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb93-69"><a href="model.html#cb93-69" aria-hidden="true" tabindex="-1"></a>  away_blow <span class="ot">&lt;-</span> <span class="cf">if</span> (<span class="fu">length</span>(away_prev_g<span class="sc">$</span>Date)<span class="sc">&gt;</span><span class="dv">0</span>){</span>
+<span id="cb93-70"><a href="model.html#cb93-70" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (away_prev_g<span class="sc">$</span>PTS <span class="sc">-</span> away_prev_g<span class="sc">$</span>oPTS <span class="sc">&gt;</span> <span class="dv">19</span>) {</span>
+<span id="cb93-71"><a href="model.html#cb93-71" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;bW&quot;</span></span>
+<span id="cb93-72"><a href="model.html#cb93-72" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> <span class="cf">if</span> (away_prev_g<span class="sc">$</span>oPTS <span class="sc">-</span> away_prev_g<span class="sc">$</span>PTS <span class="sc">&gt;</span> <span class="dv">19</span>) {</span>
+<span id="cb93-73"><a href="model.html#cb93-73" aria-hidden="true" tabindex="-1"></a>      <span class="st">&quot;bL&quot;</span></span>
+<span id="cb93-74"><a href="model.html#cb93-74" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {<span class="dv">0</span></span>
+<span id="cb93-75"><a href="model.html#cb93-75" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb93-76"><a href="model.html#cb93-76" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span>{<span class="dv">0</span></span>
+<span id="cb93-77"><a href="model.html#cb93-77" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb93-78"><a href="model.html#cb93-78" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb93-79"><a href="model.html#cb93-79" aria-hidden="true" tabindex="-1"></a>  roadtrip <span class="ot">&lt;-</span> <span class="cf">if</span> (<span class="fu">length</span>(away_prev_g<span class="sc">$</span>Date)<span class="sc">&gt;</span><span class="dv">0</span>){</span>
+<span id="cb93-80"><a href="model.html#cb93-80" aria-hidden="true" tabindex="-1"></a>    away_prev_82g <span class="sc">%&gt;%</span> </span>
+<span id="cb93-81"><a href="model.html#cb93-81" aria-hidden="true" tabindex="-1"></a>      <span class="fu">mutate</span>(<span class="at">roadtrip =</span> <span class="fu">ifelse</span>(<span class="st">`</span><span class="at">H/A</span><span class="st">`</span><span class="sc">==</span><span class="st">&#39;H&#39;</span>,<span class="dv">0</span>,<span class="fu">streak_run</span>(<span class="st">`</span><span class="at">H/A</span><span class="st">`</span><span class="sc">==</span><span class="st">&#39;A&#39;</span>))) <span class="sc">%&gt;%</span></span>
+<span id="cb93-82"><a href="model.html#cb93-82" aria-hidden="true" tabindex="-1"></a>      <span class="fu">pull</span>(roadtrip) <span class="sc">%&gt;%</span></span>
+<span id="cb93-83"><a href="model.html#cb93-83" aria-hidden="true" tabindex="-1"></a>      <span class="fu">last</span>() <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb93-84"><a href="model.html#cb93-84" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {<span class="dv">1</span>}</span>
+<span id="cb93-85"><a href="model.html#cb93-85" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb93-86"><a href="model.html#cb93-86" aria-hidden="true" tabindex="-1"></a>  home_prev_82g_avgs <span class="ot">&lt;-</span> <span class="cf">if</span> (<span class="fu">length</span>(home_prev_82g)<span class="sc">&gt;</span><span class="dv">0</span>) {</span>
+<span id="cb93-87"><a href="model.html#cb93-87" aria-hidden="true" tabindex="-1"></a>    home_prev_82g <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="dv">8</span><span class="sc">:</span><span class="dv">27</span>) <span class="sc">%&gt;%</span> <span class="fu">apply</span>(<span class="dv">2</span>,mean)</span>
+<span id="cb93-88"><a href="model.html#cb93-88" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {<span class="cn">NA</span>}</span>
+<span id="cb93-89"><a href="model.html#cb93-89" aria-hidden="true" tabindex="-1"></a>  away_prev_82g_avgs <span class="ot">&lt;-</span> <span class="cf">if</span> (<span class="fu">length</span>(away_prev_82g)<span class="sc">&gt;</span><span class="dv">0</span>) {</span>
+<span id="cb93-90"><a href="model.html#cb93-90" aria-hidden="true" tabindex="-1"></a>    away_prev_82g <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="dv">8</span><span class="sc">:</span><span class="dv">27</span>) <span class="sc">%&gt;%</span> <span class="fu">apply</span>(<span class="dv">2</span>,mean)</span>
+<span id="cb93-91"><a href="model.html#cb93-91" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {<span class="cn">NA</span>}</span>
+<span id="cb93-92"><a href="model.html#cb93-92" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb93-93"><a href="model.html#cb93-93" aria-hidden="true" tabindex="-1"></a>  <span class="co">#put the info from prev g into a one-line format and rename columns</span></span>
+<span id="cb93-94"><a href="model.html#cb93-94" aria-hidden="true" tabindex="-1"></a>  home_prev_g_1line <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(home_b2btr,home_blow)</span>
+<span id="cb93-95"><a href="model.html#cb93-95" aria-hidden="true" tabindex="-1"></a>  <span class="fu">colnames</span>(home_prev_g_1line) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;b2btr&quot;</span>,<span class="st">&quot;blow&quot;</span>)</span>
+<span id="cb93-96"><a href="model.html#cb93-96" aria-hidden="true" tabindex="-1"></a>  away_prev_g_1line <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(away_b2btr,away_blow,roadtrip)</span>
+<span id="cb93-97"><a href="model.html#cb93-97" aria-hidden="true" tabindex="-1"></a>  <span class="fu">colnames</span>(away_prev_g_1line) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;b2btr&quot;</span>,<span class="st">&quot;blow&quot;</span>,<span class="st">&quot;roadtrip&quot;</span>)</span>
+<span id="cb93-98"><a href="model.html#cb93-98" aria-hidden="true" tabindex="-1"></a>  <span class="co">#info from prev82 g</span></span>
+<span id="cb93-99"><a href="model.html#cb93-99" aria-hidden="true" tabindex="-1"></a>  home_prev_82g_1line <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="fu">t</span>(home_prev_82g_avgs))</span>
+<span id="cb93-100"><a href="model.html#cb93-100" aria-hidden="true" tabindex="-1"></a>  away_prev_82g_1line <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="fu">t</span>(away_prev_82g_avgs))</span>
+<span id="cb93-101"><a href="model.html#cb93-101" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb93-102"><a href="model.html#cb93-102" aria-hidden="true" tabindex="-1"></a>  <span class="co">#put the one-lines into the original empty data frame</span></span>
+<span id="cb93-103"><a href="model.html#cb93-103" aria-hidden="true" tabindex="-1"></a>  home_prev_g_stats <span class="ot">&lt;-</span> <span class="fu">rbind</span>(home_prev_g_stats, home_prev_g_1line)</span>
+<span id="cb93-104"><a href="model.html#cb93-104" aria-hidden="true" tabindex="-1"></a>  away_prev_g_stats <span class="ot">&lt;-</span> <span class="fu">rbind</span>(away_prev_g_stats, away_prev_g_1line)</span>
+<span id="cb93-105"><a href="model.html#cb93-105" aria-hidden="true" tabindex="-1"></a>  home_prev_82g_stats <span class="ot">&lt;-</span> <span class="fu">rbind</span>(home_prev_82g_stats, home_prev_82g_1line)</span>
+<span id="cb93-106"><a href="model.html#cb93-106" aria-hidden="true" tabindex="-1"></a>  away_prev_82g_stats <span class="ot">&lt;-</span> <span class="fu">rbind</span>(away_prev_82g_stats, away_prev_82g_1line)}</span>
+<span id="cb93-107"><a href="model.html#cb93-107" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb93-108"><a href="model.html#cb93-108" aria-hidden="true" tabindex="-1"></a>home_prev_g_stats <span class="ot">&lt;-</span> home_prev_g_stats <span class="sc">%&gt;%</span> <span class="fu">rename_with</span>( <span class="sc">~</span> <span class="fu">paste0</span>(<span class="st">&quot;h&quot;</span>, .x))</span>
+<span id="cb93-109"><a href="model.html#cb93-109" aria-hidden="true" tabindex="-1"></a>away_prev_g_stats <span class="ot">&lt;-</span> away_prev_g_stats <span class="sc">%&gt;%</span> <span class="fu">rename_with</span>( <span class="sc">~</span> <span class="fu">paste0</span>(<span class="st">&quot;a&quot;</span>, .x))</span>
+<span id="cb93-110"><a href="model.html#cb93-110" aria-hidden="true" tabindex="-1"></a>home_prev_82g_stats <span class="ot">&lt;-</span> home_prev_82g_stats <span class="sc">%&gt;%</span> <span class="fu">rename_with</span>( <span class="sc">~</span> <span class="fu">paste0</span>(<span class="st">&quot;hSTD&quot;</span>, .x))</span>
+<span id="cb93-111"><a href="model.html#cb93-111" aria-hidden="true" tabindex="-1"></a>away_prev_82g_stats <span class="ot">&lt;-</span> away_prev_82g_stats <span class="sc">%&gt;%</span> <span class="fu">rename_with</span>( <span class="sc">~</span> <span class="fu">paste0</span>(<span class="st">&quot;aSTD&quot;</span>, .x))</span>
+<span id="cb93-112"><a href="model.html#cb93-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb93-113"><a href="model.html#cb93-113" aria-hidden="true" tabindex="-1"></a>allgames_df2 <span class="ot">&lt;-</span> <span class="fu">cbind</span>(allgames_df, home_prev_g_stats, away_prev_g_stats, home_prev_82g_stats,away_prev_82g_stats)</span>
+<span id="cb93-114"><a href="model.html#cb93-114" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(away_blow,away_prev_g,away_prev_g_1line,away_prev_g_stats,away_team,away_team_abv,awayind,awayind_prev,away_b2btr)</span>
+<span id="cb93-115"><a href="model.html#cb93-115" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(home_blow,home_prev_g,home_prev_g_1line,home_prev_g_stats,home_team,home_team_abv,homeind,homeind_prev,home_b2btr)</span>
+<span id="cb93-116"><a href="model.html#cb93-116" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(date,i)</span>
+<span id="cb93-117"><a href="model.html#cb93-117" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(away_prev_82g,away_prev_82g_1line,away_prev_82g_avgs,away_prev_82g_stats,awayind_prev82)</span>
+<span id="cb93-118"><a href="model.html#cb93-118" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(home_prev_82g,home_prev_82g_1line,home_prev_82g_avgs,home_prev_82g_stats,homeind_prev82)</span>
+<span id="cb93-119"><a href="model.html#cb93-119" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(roadtrip)</span></code></pre></div>
+<p>Pausing here temporarily because you don’t actually know how to improve the model</p>
 </div>
 <div id="play-styles" class="section level3 hasAnchor" number="3.6.5">
 <h3><span class="header-section-number">3.6.5</span> Play Styles<a href="model.html#play-styles" class="anchor-section" aria-label="Anchor link to header"></a></h3>
