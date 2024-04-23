@@ -3,4 +3,4 @@
 testing one two three
 
 ### some stuff
-[nbviewer]
+[nbviewer](https://github.com/jimmysbuffets/jimmysbuffets.github.io/blob/main/Uninteresting/howdoesthiswork.ipynb)
