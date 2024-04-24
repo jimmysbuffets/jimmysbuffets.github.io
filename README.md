@@ -2,5 +2,7 @@
 
 testing one two three
 
-### some stuff
-[nbviewer](https://github.com/jimmysbuffets/jimmysbuffets.github.io/blob/main/Uninteresting/howdoesthiswork.ipynb)
+### Uninteresting projects
+
+# Amortization calculator and visualizations
+[nbviewer](https://github.com/jimmysbuffets/jimmysbuffets.github.io/blob/main/Uninteresting/Amortization.ipynb)
