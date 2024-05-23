@@ -9,6 +9,8 @@ This is with an eye towards lineup plusminus, so the game is separated by game s
 
 [nbviewer](https://nbviewer.org/github/jimmysbuffets/jimmysbuffets.github.io/blob/main/nba_pbp/nba_pbp%20raw%20code%20initiation%2001.ipynb)
 
+[github](https://github.com/jimmysbuffets/jimmysbuffets.github.io/blob/main/nba_pbp/py_files/01_rawcode)
+
 ### turning the initial code into functions
 [nbviewer](https://nbviewer.org/github/jimmysbuffets/jimmysbuffets.github.io/blob/main/nba_pbp/nba_pbp%2002%20turning%20initial%20code%20into%20functions.ipynb)
 
