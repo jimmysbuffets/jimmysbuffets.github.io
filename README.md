@@ -18,3 +18,6 @@ This is with an eye towards lineup plusminus, so the game is separated by game s
 
 ### Amortization calculator and visualizations
 [nbviewer](https://nbviewer.org/github/jimmysbuffets/jimmysbuffets.github.io/blob/main/Uninteresting/Amortization.ipynb)
+
+### How large does N have to be to distinguish a 30% vs 40% shooter
+[nbviewer](https://nbviewer.org/github/jimmysbuffets/jimmysbuffets.github.io/blob/main/Uninteresting/what_N_to_distinguish_shooters.ipynb)
