@@ -1,3 +1,5 @@
+"""this is wrong"""
+
 def get_gamestints():
     """Using outputs from above, make a df of game stints, where each row shows the beginning and end result of the time between substitutions/quarters"""
 
