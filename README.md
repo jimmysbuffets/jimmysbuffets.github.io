@@ -19,7 +19,7 @@ This is with an eye towards lineup plusminus, so the game is separated by game s
 ### Realtime Gametime
 How many realtime minutes does each minute of gametime take?
 
-
+[nbviewer]
 
 
 
