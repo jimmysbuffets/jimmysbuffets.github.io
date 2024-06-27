@@ -2,6 +2,10 @@
 
 testing one two three
 
+
+
+
+
 # NBA PlayByPlay data
  
 ## Making database to do PM, RPM, APM etc
@@ -18,7 +22,10 @@ How many realtime minutes does each minute of gametime take?
 
 
 
-## Uninteresting projects
+
+
+
+# Uninteresting projects
 
 ### Amortization calculator and visualizations
 [nbviewer](https://nbviewer.org/github/jimmysbuffets/jimmysbuffets.github.io/blob/main/Uninteresting/Amortization.ipynb)
