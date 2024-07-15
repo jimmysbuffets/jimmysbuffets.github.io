@@ -23,7 +23,6 @@ How many realtime minutes does each minute of gametime take?
 
 <br/><br/>
 <br/><br/>
-<br/><br/>
 
 # Uninteresting projects
 
