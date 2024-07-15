@@ -21,7 +21,9 @@ How many realtime minutes does each minute of gametime take?
 
 [nbviewer](https://nbviewer.org/github/jimmysbuffets/jimmysbuffets.github.io/blob/main/nba_pbp/realgametime/NBA_realgametime.ipynb)
 
-
+<br/><br/>
+<br/><br/>
+<br/><br/>
 
 
 
