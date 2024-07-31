@@ -21,6 +21,11 @@ How many realtime minutes does each minute of gametime take?
 
 [nbviewer](https://nbviewer.org/github/jimmysbuffets/jimmysbuffets.github.io/blob/main/nba_pbp/realgametime/NBA_realgametime.ipynb)
 
+### Consistenshai
+Has SGA been an unusually consistent high-volume scorer over the last 2 years ('22/23-'23/24)? Can his scoring be disambiguated from consistency of minutes? Is it his gameplan or playstyle?
+
+[nbviewer](https://nbviewer.com/github/jimmysbuffets/jimmysbuffets.github.io/blob/main/nba_pbp/_consistenshai/consistenshai3.ipynb)
+
 <br/><br/>
 <br/><br/>
 
