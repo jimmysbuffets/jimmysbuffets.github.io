@@ -36,3 +36,6 @@ Has SGA been an unusually consistent high-volume scorer over the last 2 years ('
 
 ### How large does N have to be to distinguish a 30% vs 40% shooter
 [nbviewer](https://nbviewer.org/github/jimmysbuffets/jimmysbuffets.github.io/blob/main/Uninteresting/what_N_to_distinguish_shooters.ipynb)
+
+### Shedulizer with constraints
+[python](https://github.com/jimmysbuffets/jimmysbuffets.github.io/blob/main/Uninteresting/schedulizer.py)
